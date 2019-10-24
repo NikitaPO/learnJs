@@ -78,7 +78,7 @@ if (a + b < 4) {
  */
 
 function isItEnough(a, b) {
-  const result = (a + b < 4) ? 'Few!' : 'Many!';;
+  const result = (a + b < 4) ? 'Few!' : 'Many!';
   return result;
 }
 
@@ -239,10 +239,176 @@ function printPrimeNumbers(firstInterval, secondInterval) {
 }
 
 function isDivide(num) {
-  if (num = 1) return true;
-  for (let divider = num - 1; divider > 1; divider--){
+  if (num == 1) return true;
+  for (let divider = num - 1; divider > 1; divider--) {
     if (num == divider) continue;
     if (num % divider == 0) return true;
   }
   return false;
 }
+
+//2.13
+/**
+ * Напишите if..else, соответствующий следующему switch:
+
+switch (browser) {
+  case 'Edge':
+    alert( "You've got the Edge!" );
+    break;
+
+  case 'Chrome':
+  case 'Firefox':
+  case 'Safari':
+  case 'Opera':
+    alert( 'Okay we support these browsers too' );
+    break;
+
+  default:
+    alert( 'We hope that this page looks ok!' );
+}
+ */
+
+function chooseBrowser() {
+  const browser = prompt('Which browser do you use?', '');
+
+  if (browser === 'Edge') {
+    console.log('You\'ve got the Edge!');
+  } else if (
+    browser === 'Chrome' ||
+    browser === 'Firefox' ||
+    browser === 'Safari' ||
+    browser === 'Opera'
+  ) {
+    console.log('Okay we support these browsers too');
+  } else {
+    console.log('We hope that this page looks ok!');
+  }
+}
+
+/**
+ * Перепишите код с использованием одной конструкции switch:
+
+ const number = +prompt('Введите число между 0 и 3', '');
+
+if (number === 0) {
+  alert('Вы ввели число 0');
+}
+
+if (number === 1) {
+  alert('Вы ввели число 1');
+}
+
+if (number === 2 || number === 3) {
+  alert('Вы ввели число 2, а может и 3');
+}
+ */
+
+function chooseNumber() {
+  const number = +prompt('Enter a number between 0 and 3', '');
+
+  switch (number) {
+    case 0:
+      console.log('You entered 0');
+      break;
+
+    case 1:
+      console.log('You entered 1');
+      break;
+
+    case 2:
+    case 3:
+      console.log('You entered 2, or 3');
+      break;
+  }
+
+}
+
+/**
+ * Следующая функция возвращает true, если параметр age больше 18.
+
+В ином случае она задаёт вопрос confirm и возвращает его результат.
+
+function checkAge(age) {
+  if (age > 18) {
+    return true;
+  } else {
+    return confirm('Родители разрешили?');
+  }
+}
+Перепишите функцию, чтобы она делала то же самое, но без if, в одну строку.
+
+Сделайте два варианта функции checkAge:
+
+Используя оператор ?
+Используя оператор ||
+ */
+
+function checkAge1(age) {
+  return (age > 18) ? true : confirm('Did your parents let you?');
+}
+
+function checkAge2(age) {
+  return (age > 18) || confirm('Did your parents let you?');
+}
+
+/**
+ * Напишите функцию min(a,b), которая возвращает меньшее из чисел a и b.
+
+Пример вызовов:
+
+min(2, 5) == 2
+min(3, -1) == -1
+min(1, 1) == 1
+ */
+
+function min(a, b) {
+  return (a < b) ? +a : +b;
+}
+
+/**
+ * Напишите функцию pow(x,n), которая возвращает x в степени n. Иначе говоря, умножает x на себя n раз и возвращает результат.
+
+pow(3, 2) = 3 * 3 = 9
+pow(3, 3) = 3 * 3 * 3 = 27
+pow(1, 100) = 1 * 1 * ...* 1 = 1
+Создайте страницу, которая запрашивает x и n, а затем выводит результат pow(x,n).
+
+P.S. В этой задаче функция обязана поддерживать только натуральные значения n, т.е. целые от 1 и выше.
+ */
+
+function pow(x, n) {
+  if (n < 1 || n % 1 != 0) {
+    return false;
+  }
+
+  let sum = x;
+
+  for (let i = 1; i < n; i++) {
+    sum *= x;
+  }
+
+  return sum;
+}
+
+/**
+ * function ask(question, yes, no) {
+  if (confirm(question)) yes()
+  else no();
+}
+
+ask(
+  "Вы согласны?",
+  function() { alert("Вы согласились."); },
+  function() { alert("Вы отменили выполнение."); }
+);
+ */
+
+let askSomething = (question, yes, no) => {
+  (confirm(question)) ? yes(): no();
+}
+
+// askSomething(
+//   'Do you agree?',
+//   () => { console.log('You agreed'); },
+//   () => { console.log('You disagreed'); }
+// );

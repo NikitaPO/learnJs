@@ -8,7 +8,11 @@
   },
   "devDependencies": {
     "browser-sync": "^2.26.7",
-    "gulp": "^4.0.2"
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "gulp": "^4.0.2",
+    "jsdoc": "^3.6.3"
   },
   "author": "Nikita Popov <gigzim345@gmail.com>",
   "license": "ISC"
