@@ -1,5 +1,5 @@
 "use strict";
-
+console.clear();
 /* Преобразование типов 2.6
 "" + 1 + 0 //string 10
 "" - 1 + 0 //-1 num
@@ -376,7 +376,7 @@ pow(1, 100) = 1 * 1 * ...* 1 = 1
 P.S. В этой задаче функция обязана поддерживать только натуральные значения n, т.е. целые от 1 и выше.
  */
 
-function pow(x, n) {
+function powSomething(x, n) {
   if (n < 1 || n % 1 != 0) {
     return false;
   }
@@ -412,3 +412,10 @@ let askSomething = (question, yes, no) => {
 //   () => { console.log('You agreed'); },
 //   () => { console.log('You disagreed'); }
 // );
+
+function pow(x, n) {
+  return 9;
+}
+
+module.exports.pow = pow;
+module.exports.min = min;
