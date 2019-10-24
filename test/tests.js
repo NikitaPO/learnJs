@@ -1,23 +1,40 @@
+'use strict';
+
 const assert = require('chai').assert;
 const sinon = require('sinon');
 const app = require('../app/index');
 
 describe('pow', function() {
 
-  it("Erects 3 in 4 degree", function() {
-    assert.equal( app.pow(3, 4), 81, 'Doesn\'t erects in n degree');
+  describe('Erects x in 3 degree', () => {
+
+    function makeTest(x) {
+      let expected = x * x * x;
+      it(`Erects ${x} in 3 degree = ${expected}`, function() {
+        assert.equal( app.pow(x, 3), expected, 'Doesn\'t erects in 3 degree');
+      });
+    }
+
+    for (let i = 0; i <= 10; i++) {
+      makeTest(i);
+    }
+
   });
 
-  it('Erects 2 in 3 degree', function(done) {
-    assert.equal( app.pow(2, 3), 8, 'Doesn\'t erects in n degree');
-  });
+  describe('Degree check', () => {
 
-  it('Erects 3 in 2 degree', function(done) {
-        assert.equal( app.pow(3, 2), 9, 'Doesn\'t erects in n degree');
-  });
 
-  it('Erects 1 in 3 degree', function(done) {
-    assert.equal( app.pow(1, 3), 1, 'Doesn\'t erects in n degree');
-  });
+    it('for negative values of degree pow returns NaN', function() {
+      assert.isNaN( app.pow(2, -1), 'pow(2, -1) not a NaN' );
+    });
 
+    it('for float values of degree pow returns NaN', function() {
+      assert.isNaN( app.pow(2, 1.5), 'pow(2, 1.5) not a NaN' );
+    });
+
+    it('When erects 0 in 0 degree returns NaN', function() {
+      assert.isNaN( app.pow(0, 0), 'pow(0, 0) not a NaN' );
+    });
+
+  });
 });

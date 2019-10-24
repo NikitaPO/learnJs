@@ -414,7 +414,17 @@ let askSomething = (question, yes, no) => {
 // );
 
 function pow(x, n) {
-  return 9;
+  if (n < 0) return NaN;
+  if (Math.round(n) != n) return NaN;
+  if (x == 0 && n == 0) return NaN;
+
+  let result = x;
+
+  for (let i = 1; i < n; i++) {
+    result *= x;
+  }
+
+  return result;
 }
 
 module.exports.pow = pow;
