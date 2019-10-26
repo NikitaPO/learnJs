@@ -14,8 +14,11 @@
     "eslint-plugin-import": "^2.18.2",
     "gulp": "^4.0.2",
     "jsdoc": "^3.6.3",
+    "lodash": "^4.17.15",
     "mocha": "^6.2.2",
-    "sinon": "^7.5.0"
+    "requirejs": "^2.3.6",
+    "sinon": "^7.5.0",
+    "watchify": "^3.11.1"
   },
   "author": "Nikita Popov <gigzim345@gmail.com>",
   "license": "ISC"

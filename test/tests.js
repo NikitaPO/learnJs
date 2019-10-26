@@ -1,5 +1,6 @@
 'use strict';
 
+require('mocha');
 const assert = require('chai').assert;
 const sinon = require('sinon');
 const app = require('../app/index');

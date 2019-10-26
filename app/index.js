@@ -1,22 +1,26 @@
 "use strict";
-console.clear();
-/* Преобразование типов 2.6
-"" + 1 + 0 //string 10
-"" - 1 + 0 //-1 num
-true + false //1 num
-6 / "3" //2 num
-"2" * "3"//6 num
-4 + 5 + "px" //9px string
-"$" + 4 + 5//$45 string
-"4" - 2//2 num
-"4px" - 2//NaN
-7 / 0 //Infinity
-"  -9  " + 5 //" -9 5"
-"  -9  " - 5 // -14 num
-null + 1 // 1
-undefined + 1 // NaN
-" \t \n" - 2 // -2
-*/
+
+// module.exports.pow = pow;
+// module.exports.min = min;
+
+// console.clear();
+// /* Преобразование типов 2.6
+// "" + 1 + 0 //string 10
+// "" - 1 + 0 //-1 num
+// true + false //1 num
+// 6 / "3" //2 num
+// "2" * "3"//6 num
+// 4 + 5 + "px" //9px string
+// "$" + 4 + 5//$45 string
+// "4" - 2//2 num
+// "4px" - 2//NaN
+// 7 / 0 //Infinity
+// "  -9  " + 5 //" -9 5"
+// "  -9  " - 5 // -14 num
+// null + 1 // 1
+// undefined + 1 // NaN
+// " \t \n" - 2 // -2
+// */
 
 //2.9
 /**
@@ -427,5 +431,113 @@ function pow(x, n) {
   return result;
 }
 
-module.exports.pow = pow;
-module.exports.min = min;
+/**
+ * Напишите код, выполнив задание из каждого пункта отдельной строкой:
+
+Создайте пустой объект user.
+Добавьте свойство name со значением John.
+Добавьте свойство surname со значением Smith.
+Измените значение свойства name на Pete.
+Удалите свойство name из объекта.
+ */
+
+let user = new Object();
+
+user.name = 'John';
+user.surname = 'Smith';
+user.name = "Pete";
+delete user.name;
+
+/**
+ * Напишите функцию isEmpty(obj), которая возвращает true, если у объекта нет свойств, иначе false.
+
+Должно работать так:
+
+let schedule = {};
+
+alert( isEmpty(schedule) ); // true
+
+schedule["8:30"] = "get up";
+
+alert( isEmpty(schedule) ); // false
+ */
+
+function isEmpty(obj) {
+  for (let key in obj) {
+    if (key) return false;
+  }
+
+  return true;
+}
+
+let shedule = {};
+
+/**
+ * У нас есть объект, в котором хранятся зарплаты нашей команды:
+
+let salaries = {
+  John: 100,
+  Ann: 160,
+  Pete: 130
+}
+Напишите код для суммирования всех зарплат и сохраните результат в переменной sum. Должно получиться 390.
+
+Если объект salaries пуст, то результат должен быть 0.
+ */
+
+function propertiesSum(obj) {
+  let sum = 0;
+
+  for (let prop in obj) {
+    sum += obj[prop];
+  }
+
+  return sum;
+}
+
+let salaries = {
+  John: 2000,
+  Mary: 1000,
+  Marty: 3000
+}
+
+/**
+ * Создайте функцию multiplyNumeric(obj), которая умножает все числовые свойства объекта obj на 2.
+
+Например:
+
+// до вызова функции
+let menu = {
+  width: 200,
+  height: 300,
+  title: "My menu"
+};
+
+multiplyNumeric(menu);
+
+// после вызова функции
+menu = {
+  width: 400,
+  height: 600,
+  title: "My menu"
+};
+Обратите внимание, что multiplyNumeric не нужно ничего возвращать. Следует напрямую изменять объект.
+
+P.S. Используйте typeof для проверки, что значение свойства числовое.
+ */
+
+ let menu = {
+   width: 200,
+   height: 300,
+   title: "My menu"
+ };
+
+function multiplyNumeric(obj){
+  for(let key in obj) {
+    if (typeof obj[key] === 'number') {
+      obj[key] *= 2;
+    }
+  }
+}
+
+//4.4
