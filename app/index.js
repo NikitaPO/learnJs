@@ -633,3 +633,255 @@ ladder.up().up().down().showStep(); // 1
      return this;
    }
  };
+
+//Symbol.toPrimitive Преобразование объектов в примитивы
+let objectUser = {
+  name: "John",
+  age: 22,
+
+  [Symbol.toPrimitive](hint) {
+    console.log(`hint: ${hint}`);
+    return hint == 'number' ? this.age : this.name;
+  },
+
+  toString() {
+    return `his name is ${this.name}`
+  }
+}
+
+//Функции конструкторы
+
+function User(name) {
+  if (!new.target) {
+    return new User(name);
+  }
+
+  this.name = name;
+  this.age = 22;
+}
+
+//4.6
+/**
+ * Создайте функцию-конструктор Calculator, который создаёт объекты с тремя методами:
+
+read() запрашивает два значения при помощи prompt и сохраняет их значение в свойствах объекта.
+sum() возвращает сумму введённых свойств.
+mul() возвращает произведение введённых свойств.
+Например:
+
+let calculator = new Calculator();
+calculator.read();
+
+alert( "Sum=" + calculator.sum() );
+alert( "Mul=" + calculator.mul() );
+ */
+
+ function Calculator() {
+   this.read = (a, b) => {
+     this.a = +a;
+     this.b = +b;
+   };
+
+   this.sum = () => {
+     return this.a + this.b;
+   };
+
+   this.mul = () => {
+     return this.a * this.b;
+   };
+ }
+
+// let calc = new Calculator();
+// calc.read(1,2);
+// console.dir(calc);
+// console.log(calc.sum());
+
+/**
+ * Напишите функцию-конструктор Accumulator(startingValue).
+
+Объект, который она создаёт, должен уметь следующее:
+
+Хранить «текущее значение» в свойстве value. Начальное значение устанавливается в аргументе конструктора startingValue.
+Метод read() использует prompt для получения числа и прибавляет его к свойству value.
+Таким образом, свойство value является текущей суммой всего, что ввёл пользователь при вызовах метода read(), с учётом начального значения startingValue.
+
+Ниже вы можете посмотреть работу кода:
+
+let accumulator = new Accumulator(1); // начальное значение 1
+
+accumulator.read(); // прибавит ввод prompt к текущему значению
+accumulator.read(); // прибавит ввод prompt к текущему значению
+
+alert(accumulator.value); // выведет сумму этих значений
+ */
+
+function Accumulator(startingValue) {
+  this.value = startingValue;
+
+  this.read = () => {
+    this.value += +prompt('Enter value: ', '');
+  }
+}
+
+let acc = new Accumulator(5);
+
+//5.2
+/**
+ * Создайте скрипт, который запрашивает ввод двух чисел (используйте prompt) и после показывает их сумму.
+
+Запустить демо
+
+P.S. Есть «подводный камень» при работе с типами.
+ */
+
+ function printSum() {
+   let a = +prompt('Enter first number: ','');
+   let b = +prompt('Enter second number: ','');
+   let sum = a + b;
+   alert(sum.toFixed(4))
+ }
+
+/**
+ *
+ Создайте функцию readNumber, которая будет запрашивать ввод числового значения до тех пор, пока посетитель его не введёт.
+
+ Функция должна возвращать числовое значение.
+
+ Также надо разрешить пользователю остановить процесс ввода, отправив пустую строку или нажав «Отмена». В этом случае функция должна вернуть null.
+ */
+
+function readNumber() {
+  let result;
+
+  do {
+    result = prompt('Enter number: ', '');
+  } while (!isFinite(+result));
+
+  if (result === null || result === '') return null;
+  return +result;
+}
+
+/**
+ * Встроенный метод Math.random() возвращает случайное число от 0 (включительно) до 1 (но не включая 1)
+
+Напишите функцию random(min, max), которая генерирует случайное число с плавающей точкой от min до max (но не включая max).
+ */
+
+ function random(min, max) {
+   return (Math.random() * (max - min)) + min;
+ }
+
+/**
+ * Напишите функцию randomInteger(min, max), которая генерирует случайное целое (integer) число от min до max (включительно).
+
+Любое число из интервала min..max должно появляться с одинаковой вероятностью.
+
+Пример работы функции:
+
+alert( randomInteger(1, 5) ); // 1
+alert( randomInteger(1, 5) ); // 3
+alert( randomInteger(1, 5) ); // 5
+ */
+
+function randomInteger(min, max) {
+  min -= 0.5;
+  max += 0.5;
+  return Math.round(Math.random() * (max - min) + min);
+}
+
+//5.3
+/**
+ * Напишите функцию ucFirst(str), возвращающую строку str с заглавным первым символом. Например:
+
+ucFirst("вася") == "Вася";
+ */
+
+ function ucFirst(str) {
+   if (!str) return str;
+
+   str = str[0].toUpperCase() + str.slice(1);
+   return str;
+ }
+
+/**
+ * Напишите функцию checkSpam(str), возвращающую true, если str содержит 'viagra' или 'XXX', а иначе false.
+
+Функция должна быть нечувствительна к регистру:
+
+checkSpam('buy ViAgRA now') == true
+checkSpam('free xxxxx') == true
+checkSpam("innocent rabbit") == false
+ */
+
+ function checkSpam(str) {
+   str = str.toLowerCase();
+
+   return str.includes('viagra') || str.includes('xxx');
+ }
+
+/**
+ * Создайте функцию truncate(str, maxlength), которая проверяет длину строки str и, если она превосходит maxlength, заменяет конец str на "…", так, чтобы её длина стала равна maxlength.
+
+Результатом функции должна быть та же строка, если усечение не требуется, либо, если необходимо, усечённая строка.
+
+Например:
+
+truncate("Вот, что мне хотелось бы сказать на эту тему:", 20) = "Вот, что мне хотело…"
+
+truncate("Всем привет!", 20) = "Всем привет!"
+ */
+
+ function truncate(str, maxLength) {
+   if (str.length > maxLength) {
+     str = str.slice(0, maxLength-1) + '…';
+   }
+
+   return str;
+ }
+
+/**
+ * Есть стоимость в виде строки "$120". То есть сначала идёт знак валюты, а затем – число.
+
+Создайте функцию extractCurrencyValue(str), которая будет из такой строки выделять числовое значение и возвращать его.
+
+Например:
+
+alert( extractCurrencyValue('$120') === 120 ); // true
+ */
+
+ function extractCurrencyValue(str) {
+   return +str.slice(1);
+ }
+
+/*
+Давайте произведём 5 операций с массивом.
+
+Создайте массив styles с элементами «Джаз» и «Блюз».
+Добавьте «Рок-н-ролл» в конец.
+Замените значение в середине на «Классика». Ваш код для поиска значения в середине должен работать для массивов с любой длиной.
+Удалите первый элемент массива и покажите его.
+Вставьте «Рэп» и «Регги» в начало массива.
+Массив по ходу выполнения операций:
+
+Джаз, Блюз
+Джаз, Блюз, Рок-н-ролл
+Джаз, Классика, Рок-н-ролл
+Классика, Рок-н-ролл
+Рэп, Регги, Классика, Рок-н-ролл
+*/
+
+let styles = ['Джаз', 'Блюз'];
+console.log(styles);
+
+styles.push('Рок-н-ролл');
+console.log(styles);
+
+const indexOfCenterElement = Math.ceil(styles.length / 2) - 1;
+styles[indexOfCenterElement] = 'Классика';
+console.log(styles);
+
+console.log(styles.shift(0));
+console.log(styles);
+
+styles.unshift('Рэп', 'Рэгги')
+console.log(styles);
