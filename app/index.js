@@ -870,18 +870,76 @@ alert( extractCurrencyValue('$120') === 120 ); // true
 Рэп, Регги, Классика, Рок-н-ролл
 */
 
-let styles = ['Джаз', 'Блюз'];
-console.log(styles);
+// let styles = ['Джаз', 'Блюз'];
+// console.log(styles);
+//
+// styles.push('Рок-н-ролл');
+// console.log(styles);
+//
+// const indexOfCenterElement = Math.ceil(styles.length / 2) - 1;
+// styles[indexOfCenterElement] = 'Классика';
+// console.log(styles);
+//
+// console.log(styles.shift(0));
+// console.log(styles);
+//
+// styles.unshift('Рэп', 'Рэгги')
+// console.log(styles);
 
-styles.push('Рок-н-ролл');
-console.log(styles);
+/*
 
-const indexOfCenterElement = Math.ceil(styles.length / 2) - 1;
-styles[indexOfCenterElement] = 'Классика';
-console.log(styles);
+Напишите функцию sumInput(), которая:
 
-console.log(styles.shift(0));
-console.log(styles);
+Просит пользователя ввести значения, используя prompt и сохраняет их в массив.
+Заканчивает запрашивать значения, когда пользователь введёт не числовое значение, пустую строку или нажмёт «Отмена».
+Подсчитывает и возвращает сумму элементов массива.
+P.S. Ноль 0 – считается числом, не останавливайте ввод значений при вводе «0
+*/
 
-styles.unshift('Рэп', 'Рэгги')
-console.log(styles);
+function sumInput() {
+  let num;
+  let isNumFinite = true;
+  let arr = [];
+
+  do {
+    num = prompt('');
+
+    if (num === '' || num === null || !isFinite(num)) {
+      const fullSum = sumOfArr(arr);
+      console.log(fullSum);
+
+      return fullSum;
+    } else {
+      arr.push(+num);
+      console.log(arr);
+    }
+
+    console.log(num, isNumFinite);
+  } while(isNumFinite)
+}
+
+function sumOfArr(arr) {
+  return arr.reduce((a, b) => a + b)
+}
+
+/*
+На входе массив чисел, например: arr = [1, -2, 3, 4, -9, 6].
+
+Задача: найти непрерывный подмассив в arr, сумма элементов в котором максимальна.
+
+Функция getMaxSubSum(arr) должна возвращать эту сумму.
+
+Например:
+getMaxSubSum([-1, 2, 3, -9]) = 5 (сумма выделенных)
+getMaxSubSum([2, -1, 2, 3, -9]) = 6
+getMaxSubSum([-1, 2, 3, -9, 11]) = 11
+getMaxSubSum([-2, -1, 1, 2]) = 3
+getMaxSubSum([100, -9, 2, -3, 5]) = 100
+getMaxSubSum([1, 2, 3]) = 6 (берём все)
+
+Если все элементы отрицательные – ничего не берём(подмассив пустой) и сумма равна «0»:
+
+getMaxSubSum([-1, -2, -3]) = 0
+Попробуйте придумать быстрое решение: O(n2), а лучше за О(n) операций.
+
+*/
