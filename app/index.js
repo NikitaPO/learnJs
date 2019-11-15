@@ -870,18 +870,74 @@ alert( extractCurrencyValue('$120') === 120 ); // true
 Рэп, Регги, Классика, Рок-н-ролл
 */
 
-let styles = ['Джаз', 'Блюз'];
-console.log(styles);
+// let styles = ['Джаз', 'Блюз'];
+// console.log(styles);
+//
+// styles.push('Рок-н-ролл');
+// console.log(styles);
+//
+// const indexOfCenterElement = Math.ceil(styles.length / 2) - 1;
+// styles[indexOfCenterElement] = 'Классика';
+// console.log(styles);
+//
+// console.log(styles.shift(0));
+// console.log(styles);
+//
+// styles.unshift('Рэп', 'Рэгги')
+// console.log(styles);
 
-styles.push('Рок-н-ролл');
-console.log(styles);
+/*
+На входе массив чисел, например: arr = [1, -2, 3, 4, -9, 6].
 
-const indexOfCenterElement = Math.ceil(styles.length / 2) - 1;
-styles[indexOfCenterElement] = 'Классика';
-console.log(styles);
+Задача: найти непрерывный подмассив в arr, сумма элементов в котором максимальна.
 
-console.log(styles.shift(0));
-console.log(styles);
+Функция getMaxSubSum(arr) должна возвращать эту сумму.
 
-styles.unshift('Рэп', 'Рэгги')
-console.log(styles);
+Например:
+getMaxSubSum([-1, 2, 3, -9]) = 5 (сумма выделенных)
+getMaxSubSum([2, -1, 2, 3, -9]) = 6
+getMaxSubSum([-1, 2, 3, -9, 11]) = 11
+getMaxSubSum([-2, -1, 1, 2]) = 3
+getMaxSubSum([100, -9, 2, -3, 5]) = 100
+getMaxSubSum([1, 2, 3]) = 6 (берём все)
+Если все элементы отрицательные – ничего не берём(подмассив пустой) и сумма равна «0»:
+
+getMaxSubSum([-1, -2, -3]) = 0
+Попробуйте придумать быстрое решение: O(n2), а лучше за О(n) операций.
+
+*/
+// let arr = [1, 2, 3];
+// console.log(arr.slice(2, arr.length));
+
+function getMaxSubSum(arr) {
+  let maxSum = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = arr.length; j > i; j--){
+      let sumOfSubArray = sumArray(mySliceArray(arr, i, j));
+
+      if (sumOfSubArray > maxSum) {
+        maxSum = sumOfSubArray;
+        console.log(mySliceArray(arr, i, j), sumOfSubArray);
+      }
+    }
+  }
+
+  return maxSum
+}
+
+function sumArray(arr) {
+  return arr.reduce((a, b) => a + b)
+}
+
+function mySliceArray(arr, i, j) {
+  let newArray = [];
+
+  while (i < j) {
+    newArray.push(arr[i++]);
+  }
+
+  return newArray
+}
+
+console.log(getMaxSubSum([-1, 3, 3, 2, -1, 5, 1, 1, -10]))
