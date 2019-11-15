@@ -996,10 +996,6 @@ function getMaxSubSum(arr) {
 
   return maxSum
 }
-let array = [1, -2, 15, 2, 0, 8];
-array.sort((a, b) => a - b);
-
-console.log(array);
 
 //sort functions
 //
@@ -1015,3 +1011,54 @@ console.log(array);
 // }
 //
 // console.log(array);
+
+
+/*Напишите функцию camelize(str), которая преобразует строки вида «my-short-string» в «myShortString».
+
+То есть дефисы удаляются, а все слова после них получают заглавную букву.
+
+Примеры:
+
+camelize("background-color") == 'backgroundColor';
+camelize("list-style-image") == 'listStyleImage';
+camelize("-webkit-transition") == 'WebkitTransition';
+P.S. Подсказка: используйте split, чтобы разбить строку на массив символов, потом переделайте всё как нужно и методом join соедините обратно.
+
+*/
+//
+// function camelize(str) {
+//   let array = str.split('');
+//   let newArray = [];
+//
+//   for ( let i = 0; i < str.length; i++ ) {
+//     if ( array[i] === '-' ) {
+//       if ( i < str.length - 1 ) newArray.push((array[++i]).toUpperCase())
+//     } else {
+//       newArray.push(array[i])
+//     }
+//   }
+//
+//   str = newArray.join('');
+//   return str;
+// }
+
+// function camelize(str) {
+//   return str
+//     .split('-')
+//     .map( (word, index) => {
+//       if (index > 0) {
+//         return word[0].toUpperCase() + word.slice(1);
+//       } else {
+//         return word;
+//       }
+//     })
+//     .join('');
+// }
+
+function camelize(str) {
+  return str
+    .split('-')
+    .map( (word, index) =>
+      index == 0 ? word : word[0].toUpperCase() + word.slice(1) )
+    .join('');
+}
