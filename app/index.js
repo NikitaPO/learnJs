@@ -1,5 +1,4 @@
 'use strict';
-console.clear();
 
 // module.exports.pow = pow;
 // module.exports.min = min;
@@ -942,38 +941,77 @@ getMaxSubSum([-1, -2, -3]) = 0
 Попробуйте придумать быстрое решение: O(n2), а лучше за О(n) операций.
 
 */
-// let arr = [1, 2, 3];
-// console.log(arr.slice(2, arr.length));
+
+// Мой *овно код
+// function getMaxSubSum(arr) {
+//   let maxSum = 0;
+//
+//   if (!isArrayPositive(arr)) return 0;
+//
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = arr.length; j > i; j--){
+//       let sumOfSubArray = sumArray(mySliceArray(arr, i, j));
+//
+//       if (sumOfSubArray > maxSum) {
+//         maxSum = sumOfSubArray;
+//         console.log(mySliceArray(arr, i, j), sumOfSubArray);
+//       }
+//     }
+//   }
+//
+//   return maxSum
+// }
+//
+// function sumArray(arr) {
+//   return arr.reduce((a, b) => a + b)
+// }
+//
+// function isArrayPositive(arr) {
+//   for (let item of arr) {
+//     if (item > 0) return true;
+//   }
+//
+//   return false;
+// }
+//
+// function mySliceArray(arr, i, j) {
+//   let newArray = [];
+//
+//   while (i < j) {
+//     newArray.push(arr[i++]);
+//   }
+//
+//   return newArray
+// }
 
 function getMaxSubSum(arr) {
   let maxSum = 0;
+  let particalSum = 0;
 
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = arr.length; j > i; j--){
-      let sumOfSubArray = sumArray(mySliceArray(arr, i, j));
-
-      if (sumOfSubArray > maxSum) {
-        maxSum = sumOfSubArray;
-        console.log(mySliceArray(arr, i, j), sumOfSubArray);
-      }
-    }
+  for (let item of arr) {
+    particalSum += item;
+    maxSum = Math.max(maxSum, particalSum);
+    if (particalSum < 0) particalSum = 0;
   }
 
   return maxSum
 }
+let array = [1, -2, 15, 2, 0, 8];
+array.sort((a, b) => a - b);
 
-function sumArray(arr) {
-  return arr.reduce((a, b) => a + b)
-}
+console.log(array);
 
-function mySliceArray(arr, i, j) {
-  let newArray = [];
-
-  while (i < j) {
-    newArray.push(arr[i++]);
-  }
-
-  return newArray
-}
-
-console.log(getMaxSubSum([-1, 3, 3, 2, -1, 5, 1, 1, -10]));
+//sort functions
+//
+// let array = [1, -2, 15, 2, 0, 8];
+// array.sort((a, b) => a - b);
+//
+// or
+//
+// function compareNumeric(a, b) {
+//   if (a > b) return 1;
+//   if (a == b) return 0;
+//   if (a < b) return -1;
+// }
+//
+// console.log(array);
