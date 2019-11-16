@@ -1499,4 +1499,9 @@ function aclean(arr) {
   return Array.from(map.values())
 }
 
-// console.log(aclean(arr));
+let obj = {
+  name: 'Nick',
+  age: '23'
+}
+
+console.log(Object.entries(obj));
