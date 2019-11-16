@@ -1378,8 +1378,125 @@ function unique(arr) {
 
   return newArr
 }
+//
+// let strings = ["кришна", "кришна", "харе", "харе",
+//   "харе", "харе", "кришна", "кришна", ":-O"];
+//
+// console.log( unique(strings) );
 
-let strings = ["кришна", "кришна", "харе", "харе",
-  "харе", "харе", "кришна", "кришна", ":-O"];
+let range = {
+  from: 1,
+  to: 10
+};
 
-console.log( unique(strings) );
+range[Symbol.iterator] = function () {
+  return {
+    current: this.from,
+    last: this.to,
+
+    next() {
+      if (this.current <= this.last) {
+        return {done: false, value: this.current++}
+      } else {
+        return {done: true}
+      }
+    }
+  }
+}
+//
+// for (let item of range) {
+//   console.log(item);
+// }
+// let obj = {
+//   name: 'John',
+//   surname: 'Smith'
+// }
+//
+//
+// let map = new Map([
+//   [1, 'hello'],
+//   ['1', 'goodbye']
+// ]);
+//
+// obj = map.fromEntries();
+// console.log(obj);
+//
+// let mapObject = new Map(obj);
+// map.set(1, 'hello')
+// map.set('1', 'goodbye')
+
+// for (let item of mapObject) {
+//   console.log(item);
+// }
+
+/*
+Допустим, у нас есть массив arr.
+
+Создайте функцию unique(arr), которая вернёт массив уникальных, не повторяющихся значений массива arr.
+
+Например:
+
+
+
+alert( unique(values) ); // Hare, Krishna, :-O
+P.S. Здесь мы используем строки, но значения могут быть любого типа.
+
+P.P.S. Используйте Set для хранения уникальных значений.
+*/
+// let values = ["Hare", "Krishna", "Hare", "Krishna",
+// "Krishna", "Krishna", "Hare", "Hare", ":-O"
+// ];
+
+function uniqueArray(arr) {
+  return Array.from(new Set(arr));
+}
+
+// console.log(uniqueArray(values));
+
+/*
+Анаграммы – это слова, у которых те же буквы в том же количестве, но они располагаются в другом порядке.
+
+Например:
+
+nap - pan
+ear - are - era
+cheaters - hectares - teachers
+Напишите функцию aclean(arr), которая возвращает массив слов, очищенный от анаграмм.
+
+Например:
+
+let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+alert( aclean(arr) ); // "nap,teachers,ear" or "PAN,cheaters,era"
+Из каждой группы анаграмм должно остаться только одно слово, не важно какое.
+*/
+
+let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+// function aclean(arr) {
+//   let filterArr = [];
+//   let newArr = [];
+//
+//   for (let item of arr) {
+//     let filterItem = item.toLowerCase().split('').sort().join('');
+//
+//     if (!filterArr.includes(filterItem)) {
+//       filterArr.push(filterItem);
+//       newArr.push(item);
+//     }
+//   }
+//   return newArr;
+// }
+
+function aclean(arr) {
+  let map = new Map();
+
+  for (let word of arr) {
+    let value = word.toLowerCase().split('').sort().join('');
+    map.set(value, word);
+  }
+
+  return Array.from(map.values())
+}
+
+// console.log(aclean(arr));
