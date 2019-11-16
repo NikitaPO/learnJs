@@ -675,20 +675,20 @@ alert( "Sum=" + calculator.sum() );
 alert( "Mul=" + calculator.mul() );
  */
 
- function Calculator() {
-   this.read = (a, b) => {
-     this.a = +a;
-     this.b = +b;
-   };
-
-   this.sum = () => {
-     return this.a + this.b;
-   };
-
-   this.mul = () => {
-     return this.a * this.b;
-   };
- }
+ // function Calculator() {
+ //   this.read = (a, b) => {
+ //     this.a = +a;
+ //     this.b = +b;
+ //   };
+ //
+ //   this.sum = () => {
+ //     return this.a + this.b;
+ //   };
+ //
+ //   this.mul = () => {
+ //     return this.a * this.b;
+ //   };
+ // }
 
 // let calc = new Calculator();
 // calc.read(1,2);
@@ -1333,3 +1333,53 @@ function shuffle(arr) {
 // }
 //
 // console.log(count);
+
+/*
+Напишите функцию getAverageAge(users), которая принимает массив объектов со свойством age и возвращает средний возраст.
+
+Формула вычисления среднего арифметического значения: (age1 + age2 + ... + ageN) / N.
+
+Например:
+
+let vasya = { name: "Вася", age: 25 };
+let petya = { name: "Петя", age: 30 };
+let masha = { name: "Маша", age: 29 };
+
+let arr = [ vasya, petya, masha ];
+
+alert( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
+*/
+
+// let vasya = { name: "Вася", age: 25 };
+// let petya = { name: "Петя", age: 30 };
+// let masha = { name: "Маша", age: 29 };
+// let users = [ vasya, petya, masha ];
+
+function getAverageAge(arr) {
+  return arr.reduce((sum, item) => sum + item.age, 0) / arr.length;
+}
+
+/*
+Пусть arr – массив строк.
+
+Напишите функцию unique(arr), которая возвращает массив, содержащий только уникальные элементы arr.
+
+Например:
+*/
+
+function unique(arr) {
+  let newArr = [];
+
+  for (let item of arr) {
+    if (!newArr.includes(item)) {
+      newArr.push(item);
+    }
+  }
+
+  return newArr
+}
+
+let strings = ["кришна", "кришна", "харе", "харе",
+  "харе", "харе", "кришна", "кришна", ":-O"];
+
+console.log( unique(strings) );
