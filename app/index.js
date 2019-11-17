@@ -1559,6 +1559,152 @@ alert( count(user) ); // 2
 P.S. Игнорируйте символьные свойства, подсчитывайте только «обычные».
 */
 
-function count(obj) {
-  return Object.keys(obj).length;
+// function count(obj) {
+//   return Object.keys(obj).length;
+// }
+//
+// let options = {
+//   title: "My menu",
+//   items: ["Pike", "Sardine"],
+//   priceList: [100, 200],
+// }
+//
+// function showMenu({title = "Menu", width = 200, height = 300, items = [], ...other } = {}) {
+//   let menuObj = {title, width, height, items, ...other};
+//   console.log(menuObj);
+// }
+//
+// let findAllCookies = {
+//   level1: {
+//     hello: ['not here',
+//       {
+//         almost: 'cookie1'
+//       }
+//     ]
+//   },
+//
+//   level2: [
+//     {
+//       where : [
+//         {},
+//         {},
+//         {
+//           here: [
+//             [
+//               {
+//                 itsNotCookie: 'caakie'
+//               },
+//               {
+//                 second:
+//                 {
+//                   isItCookie: 'cookie2'
+//                 }
+//               }
+//             ]
+//           ]
+//         }
+//       ]
+//     },
+//   ],
+// };
+//
+// let {level1: {hello: [, {almost: cookie1}]}} = findAllCookies;
+// let {level2: [{where: [, , {here: [[, {second: {isItCookie: cookie2}}]]}]}]} = findAllCookies;
+//
+// console.log(cookie1);
+// console.log(cookie2);
+//
+//
+// findAllCookies = {
+//   here: {
+//     that: ['cookie']
+//   }
+// }
+//
+// let {here: {that: [cookie]}} = findAllCookies;
+//
+// console.log(cookie); //cookie
+
+/*
+
+At this task you need to use destructuring to find cookie strings. For example:
+
+```javascript
+let findAllCookies = {
+  here: {
+    that: ['cookie']
+  }
+}
+
+let {here: {that: [cookie]}} = findAllCookies;
+
+console.log(cookie); //cookie
+```
+*/
+
+/*
+У нас есть объект:
+
+let user = {
+  name: "John",
+  years: 30
+};
+Напишите деструктурирующее присваивание, которое:
+
+свойство name присвоит в переменную name.
+свойство years присвоит в переменную age.
+свойство isAdmin присвоит в переменную isAdmin (false, если нет такого свойства)
+Пример переменных после вашего присваивания:
+
+let user = { name: "John", years: 30 };
+
+// ваш код должен быть с левой стороны:
+// ... = user
+
+alert( name ); // John
+alert( age ); // 30
+alert( isAdmin ); // false
+
+*/
+
+// let user1 = { name: "John", years: 30 };
+//
+// let {name, years: age, isAdmin = false} = user1;
+//
+// console.log(name, age, isAdmin);
+
+/*
+У нас есть объект salaries с зарплатами:
+
+let salaries = {
+  "John": 100,
+  "Pete": 300,
+  "Mary": 250
+};
+Создайте функцию topSalary(salaries), которая возвращает имя самого высокооплачиваемого сотрудника.
+
+Если объект salaries пустой, то нужно вернуть null.
+Если несколько высокооплачиваемых сотрудников, можно вернуть любого из них.
+P.S. Используйте Object.entries и деструктурирование, чтобы перебрать пары ключ/значение.
+
+*/
+
+let salaries1 = {
+  "John": 100,
+  "Pete": 300,
+  "Mary": 250
+};
+
+function topSalary(obj) {
+  let maxSalary = 0;
+  let maxName = null;
+
+  for (let [name, salary] of Object.entries(obj)) {
+    if (maxSalary < salary) {
+      maxSalary = salary;
+      maxName = name;
+    }
+  }
+
+  return maxName
 }
