@@ -1499,9 +1499,66 @@ function aclean(arr) {
   return Array.from(map.values())
 }
 
-let obj = {
-  name: 'Nick',
-  age: '23'
+// let obj = {
+//   name: 'Nick',
+//   age: '23'
+// }
+
+// console.log(Object.entries(obj));
+
+/*
+Есть объект salaries с произвольным количеством свойств, содержащих заработные платы.
+
+Напишите функцию sumSalaries(salaries), которая возвращает сумму всех зарплат с помощью метода Object.values и цикла for..of.
+
+Если объект salaries пуст, то результат должен быть 0.
+
+Например:
+
+let salaries = {
+  "John": 100,
+  "Pete": 300,
+  "Mary": 250
+};
+
+alert( sumSalaries(salaries) ); // 650
+*/
+
+let salaries2 = {
+  "John": 100,
+  "Pete": 300,
+  "Mary": 250
+};
+
+// function sumSalaries(obj) {
+//   let sum = 0;
+//
+//   for (let prop of Object.values(obj)) {
+//     sum += prop;
+//   }
+//
+//   return sum
+// }
+
+function sumSalaries(obj) {
+  return Object.values(obj).reduce((prev, next) => prev + next, 0);
 }
 
-console.log(Object.entries(obj));
+/*
+
+Напишите функцию count(obj), которая возвращает количество свойств объекта:
+
+let user = {
+  name: 'John',
+  age: 30
+};
+
+alert( count(user) ); // 2
+Постарайтесь сделать код как можно короче.
+
+P.S. Игнорируйте символьные свойства, подсчитывайте только «обычные».
+*/
+
+function count(obj) {
+  return Object.keys(obj).length;
+}
