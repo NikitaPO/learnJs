@@ -441,12 +441,12 @@ function pow(x, n) {
 Удалите свойство name из объекта.
  */
 
-let user = new Object();
-
-user.name = 'John';
-user.surname = 'Smith';
-user.name = "Pete";
-delete user.name;
+// let user = new Object();
+//
+// user.name = 'John';
+// user.surname = 'Smith';
+// user.name = "Pete";
+// delete user.name;
 
 /**
  * Напишите функцию isEmpty(obj), которая возвращает true, если у объекта нет свойств, иначе false.
@@ -1872,7 +1872,7 @@ alert( formatDate(new Date(new Date - 5 * 60 * 1000)) ); // "5 мин. наза�
 alert( formatDate(new Date(new Date - 86400 * 1000)) );
 */
 
-let date = new Date(2019, 11, 18, 0, 14);
+// let date = new Date(2019, 11, 18, 0, 14);
 
 function formatDate(date) {
   let difference = Date.now() - date.getTime();
@@ -1895,5 +1895,107 @@ function formatDate(date) {
     + String(date.getMinutes()).padStart(2, '0')
   }
 }
+let users = {
+  0: {
+    name: 'Nikita',
+    age: 22
+  },
+  1: {
+    name: 'Nastya',
+    age: 20
+  }
+}
 
-console.log(formatDate(date));
+// let dateJSON = String(JSON.stringify(date)).slice(1, -1);
+// console.log(dateJSON == "2019-12-17T21:14:00.000Z");
+//
+// date = new Date(dateJSON);
+// console.log(date);
+
+// let room = {
+//   number: 23
+// };
+//
+// let meetup = {
+//   title: "Conference",
+//   participants: [{name: "John"}, {name: "Alice"}],
+//   place: room // meetup ссылается на room
+// };
+//
+// room.occupiedBy = meetup; // room ссылается на meetup
+//
+// console.log( JSON.stringify(meetup, function replacer(key, value) {
+//   console.log(`${key}: ${value}`);
+//   return (key == 'occupiedBy') ? undefined : value;
+// }));
+
+// let user = {
+//   name: 'John',
+//   age: 23,
+//   roles: {
+//     isAdmin: true,
+//     isEditor: true
+//   },
+//   dog: {
+//     name: 'Frank',
+//     age: 2,
+//     nickname: 'Bunny',
+//     sex: 'Male'
+//   }
+// }
+
+// console.log(JSON.stringify(user, null, 2));
+// console.log(Date.UTC(2019, 11, 12));
+
+/*
+Преобразуйте user в JSON, затем прочитайте этот JSON в другую переменную.
+
+*/
+
+// let user = {
+//   name: "Василий Иванович",
+//   age: 35
+// };
+//
+// let JSONuser = JSON.parse(JSON.stringify(user, null, 2));
+//
+// console.log(JSONuser);
+
+/*
+В простых случаях циклических ссылок мы можем исключить свойство, из-за которого они возникают, из сериализации по его имени.
+
+Но иногда мы не можем использовать имя, так как могут быть и другие, нужные, свойства с этим именем во вложенных объектах. Поэтому можно проверять свойство по значению.
+
+Напишите функцию replacer для JSON-преобразования, которая удалит свойства, ссылающиеся на meetup:
+
+
+в результате должно быть:
+{
+  "title":"Совещание",
+  "occupiedBy":[{"name":"Иванов"},{"name":"Петров"}],
+  "place":{"number":23}
+}
+*/
+
+// let room = {
+//   number: 23
+// };
+//
+// let meetup = {
+//   title: "Совещание",
+//   occupiedBy: [{name: "Иванов"}, {name: "Петров"}],
+//   place: room
+// };
+//
+// // цикличные ссылки
+// room.occupiedBy = meetup;
+// meetup.self = meetup;
+//
+// console.log( JSON.stringify(meetup, function replacer(key, value) {
+//   // console.log(`${key}: ${value}`);
+//   if (key != '' && value == meetup) {
+//     return undefined
+//   } else {
+//     return value
+//   }
+// }));
