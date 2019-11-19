@@ -526,14 +526,14 @@ menu = {
 P.S. Используйте typeof для проверки, что значение свойства числовое.
  */
 
- let menu = {
-   width: 200,
-   height: 300,
-   title: "My menu"
- };
+let menu = {
+  width: 200,
+  height: 300,
+  title: "My menu"
+};
 
-function multiplyNumeric(obj){
-  for(let key in obj) {
+function multiplyNumeric(obj) {
+  for (let key in obj) {
     if (typeof obj[key] === 'number') {
       obj[key] *= 2;
     }
@@ -556,39 +556,39 @@ alert( calculator.sum() );
 alert( calculator.mul() );
  */
 
- let id = Symbol('id');
+let id = Symbol('id');
 
- let calculator = {
+let calculator = {
 
-   [id]: 0,
+  [id]: 0,
 
-   read(...value) {
-     for (let item in value) {
-       this[this[id]] = item;
-       this[id]++;
-     }
-   },
+  read(...value) {
+    for (let item in value) {
+      this[this[id]] = item;
+      this[id]++;
+    }
+  },
 
-   sum() {
-     let sum = 0;
+  sum() {
+    let sum = 0;
 
-     for(let key in this) {
-       sum += this[key];
-     }
-   },
+    for (let key in this) {
+      sum += this[key];
+    }
+  },
 
-   mul() {
-     let multiply = 1;
+  mul() {
+    let multiply = 1;
 
-     for(let key in this) {
-       if (typeof this[key] === 'number') {
-         multiply *= this[key];
-       }
-     }
+    for (let key in this) {
+      if (typeof this[key] === 'number') {
+        multiply *= this[key];
+      }
+    }
 
-     return multiply;
-   }
- };
+    return multiply;
+  }
+};
 
 /**
  * Это ladder (лестница) – объект, который позволяет подниматься вверх и спускаться:
@@ -617,21 +617,21 @@ ladder.up().up().down().showStep(); // 1
 Такой подход широко используется в библиотеках JavaScript.
  */
 
- let ladder = {
-   step: 0,
-   up() {
-     this.step++;
-     return this;
-   },
-   down() {
-     this.step--;
-     return this;
-   },
-   showStep: function() { // показывает текущую ступеньку
-     console.log( this.step );
-     return this;
-   }
- };
+let ladder = {
+  step: 0,
+  up() {
+    this.step++;
+    return this;
+  },
+  down() {
+    this.step--;
+    return this;
+  },
+  showStep: function () { // показывает текущую ступеньку
+    console.log(this.step);
+    return this;
+  }
+};
 
 //Symbol.toPrimitive Преобразование объектов в примитивы
 let objectUser = {
@@ -675,20 +675,20 @@ alert( "Sum=" + calculator.sum() );
 alert( "Mul=" + calculator.mul() );
  */
 
- // function Calculator() {
- //   this.read = (a, b) => {
- //     this.a = +a;
- //     this.b = +b;
- //   };
- //
- //   this.sum = () => {
- //     return this.a + this.b;
- //   };
- //
- //   this.mul = () => {
- //     return this.a * this.b;
- //   };
- // }
+// function Calculator() {
+//   this.read = (a, b) => {
+//     this.a = +a;
+//     this.b = +b;
+//   };
+//
+//   this.sum = () => {
+//     return this.a + this.b;
+//   };
+//
+//   this.mul = () => {
+//     return this.a * this.b;
+//   };
+// }
 
 // let calc = new Calculator();
 // calc.read(1,2);
@@ -733,12 +733,12 @@ let acc = new Accumulator(5);
 P.S. Есть «подводный камень» при работе с типами.
  */
 
- function printSum() {
-   let a = +prompt('Enter first number: ','');
-   let b = +prompt('Enter second number: ','');
-   let sum = a + b;
-   alert(sum.toFixed(4))
- }
+function printSum() {
+  let a = +prompt('Enter first number: ', '');
+  let b = +prompt('Enter second number: ', '');
+  let sum = a + b;
+  alert(sum.toFixed(4))
+}
 
 /**
  *
@@ -766,9 +766,9 @@ function readNumber() {
 Напишите функцию random(min, max), которая генерирует случайное число с плавающей точкой от min до max (но не включая max).
  */
 
- function random(min, max) {
-   return (Math.random() * (max - min)) + min;
- }
+function random(min, max) {
+  return (Math.random() * (max - min)) + min;
+}
 
 /**
  * Напишите функцию randomInteger(min, max), которая генерирует случайное целое (integer) число от min до max (включительно).
@@ -795,12 +795,12 @@ function randomInteger(min, max) {
 ucFirst("вася") == "Вася";
  */
 
- function ucFirst(str) {
-   if (!str) return str;
+function ucFirst(str) {
+  if (!str) return str;
 
-   str = str[0].toUpperCase() + str.slice(1);
-   return str;
- }
+  str = str[0].toUpperCase() + str.slice(1);
+  return str;
+}
 
 /**
  * Напишите функцию checkSpam(str), возвращающую true, если str содержит 'viagra' или 'XXX', а иначе false.
@@ -812,11 +812,11 @@ checkSpam('free xxxxx') == true
 checkSpam("innocent rabbit") == false
  */
 
- function checkSpam(str) {
-   str = str.toLowerCase();
+function checkSpam(str) {
+  str = str.toLowerCase();
 
-   return str.includes('viagra') || str.includes('xxx');
- }
+  return str.includes('viagra') || str.includes('xxx');
+}
 
 /**
  * Создайте функцию truncate(str, maxlength), которая проверяет длину строки str и, если она превосходит maxlength, заменяет конец str на "…", так, чтобы её длина стала равна maxlength.
@@ -830,13 +830,13 @@ truncate("Вот, что мне хотелось бы сказать на эту
 truncate("Всем привет!", 20) = "Всем привет!"
  */
 
- function truncate(str, maxLength) {
-   if (str.length > maxLength) {
-     str = str.slice(0, maxLength-1) + '…';
-   }
+function truncate(str, maxLength) {
+  if (str.length > maxLength) {
+    str = str.slice(0, maxLength - 1) + '…';
+  }
 
-   return str;
- }
+  return str;
+}
 
 /**
  * Есть стоимость в виде строки "$120". То есть сначала идёт знак валюты, а затем – число.
@@ -848,9 +848,9 @@ truncate("Всем привет!", 20) = "Всем привет!"
 alert( extractCurrencyValue('$120') === 120 ); // true
  */
 
- function extractCurrencyValue(str) {
-   return +str.slice(1);
- }
+function extractCurrencyValue(str) {
+  return +str.slice(1);
+}
 
 /*
 Давайте произведём 5 операций с массивом.
@@ -915,7 +915,7 @@ function sumInput() {
     }
 
     console.log(num, isNumFinite);
-  } while(isNumFinite)
+  } while (isNumFinite)
 }
 
 function sumOfArr(arr) {
@@ -1058,8 +1058,8 @@ P.S. Подсказка: используйте split, чтобы разбить
 function camelize(str) {
   return str
     .split('-')
-    .map( (word, index) =>
-      index == 0 ? word : word[0].toUpperCase() + word.slice(1) )
+    .map((word, index) =>
+      index == 0 ? word : word[0].toUpperCase() + word.slice(1))
     .join('');
 }
 
@@ -1080,7 +1080,7 @@ alert( arr ); // 5,3,8,1 (без изменений)
 */
 
 function filterRange(arr, a, b) {
-  return arr.filter( item => (item >= a && item <= b));
+  return arr.filter(item => (item >= a && item <= b));
 }
 
 /*
@@ -1099,8 +1099,8 @@ alert( arr ); // [3, 1]
 */
 
 function filterRangeInPlace(arr, a, b) {
-  for ( let i = 0; i < arr.length; i++ ) {
-    if ( arr[i] < a || arr[i] > b ) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < a || arr[i] > b) {
       arr.splice(i--, 1);
     }
   }
@@ -1188,7 +1188,7 @@ function Calculator() {
     let b = +split[2];
     let result = this.methods[operator](a, b);
 
-    if( isNaN(a) || isNaN(b) || !result ) {
+    if (isNaN(a) || isNaN(b) || !result) {
       return NaN;
     }
 
@@ -1302,7 +1302,7 @@ shuffle(arr);
 */
 
 function shuffle(arr) {
-  for ( let i = arr.length - 1; i > 0; i-- ) {
+  for (let i = arr.length - 1; i > 0; i--) {
     let r = Math.floor(Math.random() * (i + 1));
     [arr[i], arr[r]] = [arr[r], arr[i]];
   }
@@ -1396,9 +1396,14 @@ range[Symbol.iterator] = function () {
 
     next() {
       if (this.current <= this.last) {
-        return {done: false, value: this.current++}
+        return {
+          done: false,
+          value: this.current++
+        }
       } else {
-        return {done: true}
+        return {
+          done: true
+        }
       }
     }
   }
@@ -1889,10 +1894,10 @@ function formatDate(date) {
   } else if (difference < 300000) {
     return `${Math.round(difference / 60000)} мин. назад`;
   } else {
-    return date.getDate() + '.' + mounth + '.'
-    + String(date.getFullYear()).slice(-2) + ' '
-    + String(date.getHours()).padStart(2, '0') + ':'
-    + String(date.getMinutes()).padStart(2, '0')
+    return date.getDate() + '.' + mounth + '.' +
+      String(date.getFullYear()).slice(-2) + ' ' +
+      String(date.getHours()).padStart(2, '0') + ':' +
+      String(date.getMinutes()).padStart(2, '0')
   }
 }
 let users = {
@@ -1999,3 +2004,4 @@ let users = {
 //     return value
 //   }
 // }));
+
