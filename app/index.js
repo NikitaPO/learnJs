@@ -1,5 +1,7 @@
 'use strict';
 
+// import { isArray } from "util";
+
 // module.exports.pow = pow;
 // module.exports.min = min;
 
@@ -2005,18 +2007,466 @@ let users = {
 //   }
 // }));
 
+function powRecursion(x, n) {
+  return (n == 1) ? x : x * pow(x, n - 1)
+}
+
+function powIteration(x, n) {
+  let result = x;
+
+  for (let i = 1; i < n; i++) {
+    result *= x;
+  }
+
+  return result;
+}
+
+function benchmark(fn, ...args) {
+  let result = 0;
+
+  for (let i = 0; i < 100000; i++) {
+    let start = Date.now();
+    fn(...args);
+    let end = Date.now();
+    result += end - start;
+  }
+
+  return result
+}
+
+function test(fn, ...args) {
+  let result = 0;
+
+  for (let i = 0; i <= 100; i++) {
+    result += benchmark(fn, ...args);
+  }
+
+  return `${result / 100}ms`
+}
+
 /*
-Следующий код создаёт массив из стрелков (shooters).
+Напишите функцию sumTo(n), которая вычисляет сумму чисел 1 + 2 + ... + n.
 
-Каждая функция предназначена выводить их порядковые номера. Но что-то пошло не так…
+Например:
 
- function makeArmy() {
+sumTo(1) = 1
+sumTo(2) = 2 + 1 = 3
+sumTo(3) = 3 + 2 + 1 = 6
+sumTo(4) = 4 + 3 + 2 + 1 = 10
+...
+sumTo(100) = 100 + 99 + ... + 2 + 1 = 5050
+Сделайте три варианта решения:
+
+С использованием цикла.
+Через рекурсию, т.к. sumTo(n) = n + sumTo(n-1) for n > 1.
+С использованием формулы арифметической прогрессии.
+Пример работы вашей функции:
+
+function sumTo(n) { }
+
+alert( sumTo(100) ); // 5050
+P.S. Какой вариант решения самый быстрый? Самый медленный? Почему?
+
+P.P.S. Можно ли при помощи рекурсии посчитать sumTo(100000)?
+*/
+
+function sumToIter(n) {
+  let sum = n;
+
+  while (n > 1) {
+    sum += --n;
+  }
+
+  return sum
+}
+
+function sumToRec(n) {
+  if (n == 1) {
+    return 1
+  } else {
+    return n + sumToRec(n - 1)
+  }
+}
+
+function sumToRecTern(n) {
+  return (n == 1) ? 1 : n + sumToRecTern(n - 1)
+}
+
+function sumToFormula(n) {
+  return n * (n + 1) / 2
+}
+
+// let a = 5;
+//
+// console.log(test(sumToIter, a));
+// console.log(test(sumToRec, a));
+// console.log(test(sumToRecTern,a));
+// console.log(test(sumToFormula, a));
+
+/*
+Факториал натурального числа – это число, умноженное на "себя минус один", затем на "себя минус два", и так далее до 1. Факториал n обозначается как n!
+
+Определение факториала можно записать как:
+
+n! = n * (n - 1) * (n - 2) * ...*1
+Примеры значений для разных n:
+
+1! = 1
+2! = 2 * 1 = 2
+3! = 3 * 2 * 1 = 6
+4! = 4 * 3 * 2 * 1 = 24
+5! = 5 * 4 * 3 * 2 * 1 = 120
+Задача – написать функцию factorial(n), которая возвращает n!, используя рекурсию.
+
+alert( factorial(5) ); // 120
+P.S. Подсказка: n! можно записать как n * (n-1)! Например: 3! = 3*2! = 3*2*1! = 6
+*/
+
+function factorial(n) {
+  return n ? n * factorial(n - 1) : 1
+}
+
+/*
+Последовательность чисел Фибоначчи определяется формулой Fn = Fn-1 + Fn-2. То есть, следующее число получается как сумма двух предыдущих.
+
+Первые два числа равны 1, затем 2(1+1), затем 3(1+2), 5(2+3) и так далее: 1, 1, 2, 3, 5, 8, 13, 21....
+
+Числа Фибоначчи тесно связаны с золотым сечением и множеством природных явлений вокруг нас.
+
+Напишите функцию fib(n) которая возвращает n-е число Фибоначчи.
+
+Пример работы:
+
+function fib(n) { }
+
+alert(fib(3)); // 2
+alert(fib(7)); // 13
+alert(fib(77)); // 5527939700884757
+P.S. Все запуски функций из примера выше должны работать быстро. Вызов fib(77) должен занимать не более доли секунды.
+*/
+
+function fib(n) {
+  let sum;
+
+  for (let a = 1, b = 1, i = 2; i < n; i++) {
+    sum = a + b;
+    a = b;
+    b = sum;
+  }
+
+  return sum
+}
+
+// function fib(n) {
+//   return (n < 3) ? 1 : fib(n - 1) + fib(n - 2)
+// }
+
+// function fib(n) {
+//   //самый быстрый, но не точный метод
+//   const gSec = +((1 + Math.sqrt(5)) / 2).toFixed(15);
+//   console.log(gSec);
+//   return (+Math.pow(gSec, n).toFixed(15) - +Math.pow(-gSec, -n).toFixed(15)) / (2 * gSec - 1)
+// }
+
+// let fibArr = [];
+//
+// for(let i = 1; i <= 10; i++) {
+//   fibArr.push(fib(i));
+// }
+//
+// console.log(fibArr);
+
+// console.log(fib(5));
+// console.log(fib(77), test(fib, 77));
+
+/*
+Допустим, у нас есть односвязный список (как описано в главе Рекурсия и стек):
+
+let list = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null
+      }
+    }
+  }
+};
+Напишите функцию printList(list), которая выводит элементы списка по одному.
+
+Сделайте два варианта решения: используя цикл и через рекурсию.
+
+Как лучше: с рекурсией или без?
+*/
+
+let list = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null
+      }
+    }
+  }
+};
+
+function printList(list) {
+  console.log(list.value);
+
+  if (list.next) {
+    printList(list.next);
+  }
+}
+//
+// function printList(list) {
+//   let temp = list;
+//
+//   while (temp) {
+//     console.log(temp.value);
+//     temp = temp.next;
+//   }
+// }
+
+// printList(list);
+/*
+Выведите односвязный список из предыдущего задания Вывод односвязного списка в обратном порядке.
+
+Сделайте два решения: с использованием цикла и через рекурсию.
+*/
+//
+// function printListReverse(list) {
+//   if (list.next) {
+//     printListReverse(list.next);
+//   }
+//
+//   console.log(list.value);
+// }
+
+function printListReverse(list) {
+  let temp = list;
+  let arr = [];
+
+  while (temp) {
+    arr.push(temp.value);
+    temp = temp.next;
+  }
+
+  for (let i = arr.length - 1; i >= 0; i--) {
+    console.log(arr[i]);
+  }
+}
+
+
+// printListReverse(list);
+
+// let array = new Array(1,2);
+
+// Сделайте объединение аргументов
+
+// function concat2(...args) {
+//   let newArr = [];
+
+//   for (let item of args) {
+//     if (!Array.isArray(item)) {
+//       newArr.push(item);
+//     } else { 
+//       newArr.push(...item);
+//     }
+//   }
+//   return [...newArr]
+// }
+
+function myFlat(...args) {
+  let newArr = [];
+
+  function concat2(...args) {
+    for (let item of args) {
+      (!Array.isArray(item)) ? newArr.push(item): concat2(...item);
+    }
+
+    return [...newArr]
+  }
+
+  return concat2(args);
+}
+// console.log(myFlat([1, 'a', [3, 4], [[5]], [[6]], [[[7]]]]));
+// console.log(concat2([1]));
+
+// function makeWorker() {
+//   return function() {
+//     console.log(name);
+//   }
+// }
+
+// let work = makeWorker();
+// let name = 'John';
+
+// work();
+
+// let name = 'Nikita';
+
+// {
+//   console.log(name);
+// }(name)
+
+/*
+// Пути создания IIFE
+
+(function () {
+  alert("Скобки вокруг функции");
+})();
+
+(function () {
+  alert("Скобки вокруг всего");
+}());
+
+! function () {
+  alert("Выражение начинается с побитового оператора NOT");
+}();
+
++
+function () {
+  alert("Выражение начинается с унарного плюса");
+}();
+
+*/
+
+/*
+Напишите функцию sum, которая работает таким образом: sum(a)(b) = a + b.
+
+Да, именно таким образом, используя двойные круглые скобки(не опечатка).
+
+Например:
+
+sum(1)(2) = 3
+sum(5)(-1) = 4
+*/
+
+// let sum = a => b => a + b;
+
+// function sum(a) {
+//   return function (b) {
+//     return a + b;
+//   }
+// }
+
+// console.log(sum(5)(3));
+
+/*
+У нас есть встроенный метод arr.filter(f) для массивов.Он фильтрует все элементы с помощью функции f.Если она возвращает true, то элемент добавится в возвращаемый массив.
+
+Сделайте набор« готовых к употреблению» фильтров:
+
+  inBetween(a, b)– между a и b(включительно).
+inArray([...])– находится в данном массиве.
+Они должны использоваться таким образом:
+
+  arr.filter(inBetween(3, 6))– выбирает только значения межу 3 и 6(включительно).
+arr.filter(inArray([1, 2, 3]))– выбирает только элементы, совпадающие с одним из элементов массива
+Например:
+
+*/
+arr = [1, 2, 3, 4, 5, 6, 7];
+
+function inBetween(minRange, maxRange) {
+  return el => (el >= minRange && el <= maxRange);
+}
+
+function inArray(arr) {
+  return el => arr.includes(el);
+}
+
+// console.log(arr.filter(inBetween(3, 6))); // 3,4,5,6
+
+// console.log(arr.filter(inArray([1, 2, 10]))); // 1,2
+
+/*
+У нас есть массив объектов, который нужно отсортировать:
+
+  let users = [{
+      name: "John",
+      age: 20,
+      surname: "Johnson"
+    },
+    {
+      name: "Pete",
+      age: 18,
+      surname: "Peterson"
+    },
+    {
+      name: "Ann",
+      age: 19,
+      surname: "Hathaway"
+    }
+  ];
+Обычный способ был бы таким:
+
+  // по имени (Ann, John, Pete)
+  users.sort((a, b) => a.name > b.name ? 1 : -1);
+
+// по возрасту (Pete, Ann, John)
+users.sort((a, b) => a.age > b.age ? 1 : -1);
+Можем ли мы сделать его короче, скажем, вот таким ?
+
+  users.sort(byField('name'));
+users.sort(byField('age'));
+То есть, чтобы вместо функции, мы просто писали byField(fieldName).
+
+Напишите функцию byField, которая может быть использована для этого.
+*/
+
+users = [{
+    name: "John",
+    age: 20,
+    surname: "Johnson"
+  },
+  {
+    name: "Pete",
+    age: 18,
+    surname: "Peterson"
+  },
+  {
+    name: "Ann",
+    age: 19,
+    surname: "Hathaway"
+  }
+];
+
+function byField(fieldName) {
+  return (a, b) => (a[fieldName] > b[fieldName]) ? 1 : -1;
+}
+
+console.log('Ann' > "John");
+
+  
+console.log(users);
+console.log('\n');
+
+users.sort(byField('name'));
+console.log(users);
+console.log('\n');
+
+users.sort(byField('age'));
+console.log(users);
+
+
+Следующий код создаёт массив из стрелков(shooters).
+
+Каждая функция предназначена выводить их порядковые номера.Но что - то пошло не так…
+
+function makeArmy() {
   let shooters = [];
 
   let i = 0;
   while (i < 10) {
-    let shooter = function() { // функция shooter
-      alert( i ); // должна выводить порядковый номер
+    let shooter = function () { // функция shooter
+      alert(i); // должна выводить порядковый номер
     };
     shooters.push(shooter);
     i++;
@@ -2030,19 +2480,18 @@ let army = makeArmy();
 army[0](); // у 0-го стрелка будет номер 10
 army[5](); // и у 5-го стрелка тоже будет номер 10
 // ... у всех стрелков будет номер 10, вместо 0, 1, 2, 3...
-Почему у всех стрелков одинаковые номера? Почините код, чтобы он работал как задумано.
-*/
+Почему у всех стрелков одинаковые номера ? Почините код, чтобы он работал как задумано.*/
 
 function makeArmy() {
   let shooters = [];
   let i = 0;
-  
+
   while (i < 10) {
     let k = i;
     let shooter = function () { // функция shooter
       console.log(k); // должна выводить порядковый номер
     };
-    
+
     shooters.push(shooter);
     i++;
   }
