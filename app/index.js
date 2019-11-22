@@ -2442,20 +2442,7 @@ function byField(fieldName) {
   return (a, b) => (a[fieldName] > b[fieldName]) ? 1 : -1;
 }
 
-console.log('Ann' > "John");
-
-  
-console.log(users);
-console.log('\n');
-
-users.sort(byField('name'));
-console.log(users);
-console.log('\n');
-
-users.sort(byField('age'));
-console.log(users);
-
-
+/*
 Следующий код создаёт массив из стрелков(shooters).
 
 Каждая функция предназначена выводить их порядковые номера.Но что - то пошло не так…
