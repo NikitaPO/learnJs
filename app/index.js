@@ -2506,3 +2506,24 @@
 // //   return Array(n).fill()
 // // }
 
+function balancedNum(number) {
+  number = String(number);
+
+  let middle = Math.ceil(number.length / 2) - 1;
+  if (!middle) middle = number.length;
+
+  const left = number.slice(0, middle).split('').reduce((sum, e) => sum += +e, 0);
+  const right = number.slice(-middle).split('').reduce((sum, e) => sum += +e, 0);
+  
+  if (left == right) {
+    return 'Balanced'
+  } else {
+    return 'Not Balanced'
+  }
+}
+
+  console.log(balancedNum(7) == "Balanced")
+  console.log(balancedNum(959) == "Balanced")
+  console.log(balancedNum(13) == "Balanced")
+  console.log(balancedNum(4321) == "Not Balanced")
+  console.log(balancedNum(424) == "Balanced")
