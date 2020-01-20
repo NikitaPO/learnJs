@@ -1,3 +1,0 @@
-funciton someFunc(...args) {
-
-}

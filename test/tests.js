@@ -39,3 +39,26 @@ describe('pow', function() {
 
   });
 });
+
+const autoprefixer = require('gulp-autoprefixer'),
+  babel = require('gulp-babel'),
+  browserSync = require('browser-sync'),
+  cleanCSS = require('gulp-clean-css'),
+  del = require('del'),
+  concat = require('gulp-concat'),
+  gulp = require('gulp'),
+  plumber = require('gulp-plumber'),
+  rename = require('gulp-rename'),
+  scss = require('gulp-sass'),
+  sourcemaps = require('gulp-sourcemaps'),
+  uglify = require('gulp-uglify');
+
+gulp.task('watch', function () {
+  gulp.watch('app/scss/**/*.scss', gulp.parallel('scss'));
+  gulp.watch('app/**/*.html', gulp.parallel('html'));
+  gulp.watch('app/js/index.js', gulp.parallel('js'))
+});
+
+gulp.task('default', gulp.parallel('css-libs', 'scss', 'js', 'html', 'browser-sync', 'watch'));
+
+
