@@ -2506,24 +2506,66 @@
 // //   return Array(n).fill()
 // // }
 
-function balancedNum(number) {
-  number = String(number);
+// function balancedNum(number) {
+//   number = String(number);
 
-  let middle = Math.ceil(number.length / 2) - 1;
-  if (!middle) middle = number.length;
+//   let middle = Math.ceil(number.length / 2) - 1;
+//   if (!middle) middle = number.length;
 
-  const left = number.slice(0, middle).split('').reduce((sum, e) => sum += +e, 0);
-  const right = number.slice(-middle).split('').reduce((sum, e) => sum += +e, 0);
+//   const left = number.slice(0, middle).split('').reduce((sum, e) => sum += +e, 0);
+//   const right = number.slice(-middle).split('').reduce((sum, e) => sum += +e, 0);
   
-  if (left == right) {
-    return 'Balanced'
-  } else {
-    return 'Not Balanced'
-  }
-}
+//   if (left == right) {
+//     return 'Balanced'
+//   } else {
+//     return 'Not Balanced'
+//   }
+// }
 
-  console.log(balancedNum(7) == "Balanced")
-  console.log(balancedNum(959) == "Balanced")
-  console.log(balancedNum(13) == "Balanced")
-  console.log(balancedNum(4321) == "Not Balanced")
-  console.log(balancedNum(424) == "Balanced")
+//   console.log(balancedNum(7) == "Balanced")
+//   console.log(balancedNum(959) == "Balanced")
+//   console.log(balancedNum(13) == "Balanced")
+//   console.log(balancedNum(4321) == "Not Balanced")
+//   console.log(balancedNum(424) == "Balanced")
+
+// function calculateDamage(yourType, opponentType, attack, defense) {
+//   let types = {
+//     electric: {
+//       electric: 0.5,
+//       fire: 1,
+//       grass: 1,
+//       water: 2,
+//     },
+//     fire: {
+//       electric: 1,
+//       fire: 0.5,
+//       grass: 2,
+//       water: 0.5,
+//     },
+//     grass: {
+//       electric: 1,
+//       fire: 0.5,
+//       grass: 0.5,
+//       water: 2,
+//     },
+//     water: {
+//       electric: 0.5,
+//       fire: 2,
+//       grass: 0.5,
+//       water: 0.5,
+//     }
+//   }
+
+//   let effectiveness = types[yourType][opponentType];
+//   return 50 * (attack / defense) * effectiveness;;
+// }
+
+// console.log(calculateDamage("fire", "water", 100, 100) == 25);
+// console.log(calculateDamage("electric", "fire", 100, 100) == 50);
+// console.log(calculateDamage("grass", "water", 40, 40) == 100);
+// console.log(calculateDamage("grass", "water", 100, 100) == 100);
+// console.log(calculateDamage("grass", "fire", 35, 5) == 175);
+// console.log(calculateDamage("fire", "electric", 10, 2) == 250);
+// console.log(calculateDamage("grass", "electric", 57, 19) == 150);
+
+
