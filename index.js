@@ -2645,26 +2645,107 @@
 //   console.log("call:" + args.join()); // "call:1,2", "call:4,5"
 // }
 
-function work(a, b) {
-  console.log(a + b);
-}
+// function work(a, b) {
+//   console.log(a + b);
+// }
 
-function spy(func) {
-  function wrapper(a, b) {
-    wrapper.calls.push([a, b].join());
-    return func.call(this, a, b);
-  }
+// function spy(func) {
+//   function wrapper(a, b) {
+//     wrapper.calls.push([a, b].join());
+//     return func.call(this, a, b);
+//   }
 
-  wrapper.calls = [];
+//   wrapper.calls = [];
 
-  return wrapper;
-}
+//   return wrapper;
+// }
 
-work = spy(work);
+// work = spy(work);
 
-work(1, 3);
-work(1, 5);
+// work(1, 3);
+// work(1, 5);
 
-for (let args of work.calls) {
-  console.log("Call: " + args);
-}
+// for (let args of work.calls) {
+//   console.log("Call: " + args);
+// }
+
+// function f(x) {
+//   console.log(x);
+// }
+
+// function delay(func, del) {
+//   return function() {
+//     setTimeout(() => func.apply(this, args), del);
+//   };
+// }
+
+// // создаём обёртки
+// let f1000 = delay(f, 1000);
+// let f1500 = delay(f, 1500);
+
+// f1000("test"); // показывает "test" после 1000 мс
+// f1500("test"); // показывает "test" после 1500 мс
+
+// function delay(f, ms) {
+//   return function() {
+//     setTimeout(() => f.apply(this, arguments), ms);
+//   };
+// }
+
+// let f1000 = delay(console.log, 1000);
+
+// f1000("test"); // показывает "test" после 1000 мс
+
+// function f(x) {
+//   console.log(x);
+// }
+
+// function delay(func, ms) {
+//   return function() {
+//     setTimeout(() => func.apply(this, arguments), ms);
+//   };
+// }
+
+// let f1000 = delay(f, 1000);
+
+// f1000("hello");
+
+// function helloFunc(i) {
+  
+//   console.log("hello " + i);
+// }
+
+// function debounce(f, ms) {
+//   let start = Date.now();
+//   let counter = 0;
+
+//   return function wrapper() {
+//     if (Date.now() - start - counter * ms >= 0) {
+//       f.apply(this, arguments);
+//       ++counter;
+//     }
+//   };
+// }
+
+// // function debounce(f, ms) {
+// //   let isCooldown = false;
+
+// //   return function() {
+// //     if (isCooldown) return;
+
+// //     f.apply(this, arguments);
+// //     isCooldown = true;
+
+// //     setInterval(() => (isCooldown = false), ms);
+// //   };
+// // }
+
+// helloFunc = debounce(helloFunc, 1000);
+
+// helloFunc(1); // выполняется немедленно
+// helloFunc(2); // проигнорирован
+
+// setTimeout(() => helloFunc(3), 100); // проигнорирован (прошло только 100 мс)
+// setTimeout(() => helloFunc(4), 1100); // выполняется
+// setTimeout(() => helloFunc(5), 1500); // проигнорирован (прошло только 400 мс от последнего вызова)
+
