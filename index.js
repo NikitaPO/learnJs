@@ -1,4 +1,5 @@
-// 'use strict';
+/* eslint-disable no-func-assign */
+"use strict";
 
 // // import { isArray } from "util";
 
@@ -178,7 +179,6 @@
 //   }
 
 // }
-
 
 // //2.12
 // /**
@@ -838,7 +838,7 @@
 //   }
 
 //   return str;
-// }  
+// }
 
 // /**
 //  * Есть стоимость в виде строки "$120". То есть сначала идёт знак валюты, а затем – число.
@@ -888,7 +888,6 @@
 // // console.log(styles);
 
 // /*
-
 
 // Напишите функцию sumInput(), которая:
 
@@ -1014,7 +1013,6 @@
 // //
 // // console.log(array);
 
-
 // /*Напишите функцию camelize(str), которая преобразует строки вида «my-short-string» в «myShortString».
 
 // То есть дефисы удаляются, а все слова после них получают заглавную букву.
@@ -1124,7 +1122,6 @@
 // //
 // // console.log(array);
 
-
 // /*
 // У нас есть массив строк arr. Нужно получить отсортированную копию, но оставить arr неизменённым.
 
@@ -1182,7 +1179,6 @@
 //     '-': (a, b) => a - b,
 //   };
 
-
 //   this.calculate = (str) => {
 //     let split = str.split(' ');
 //     let a = +split[0];
@@ -1209,7 +1205,6 @@
 // myCalc.addMethod('*', (a, b) => a * b);
 
 // // console.log(myCalc.calculate('6 * 2'));
-
 
 // /*
 // У вас есть массив объектов user, и в каждом из них есть user.name. Напишите код, который преобразует их в массив имён.
@@ -1442,8 +1437,6 @@
 // Создайте функцию unique(arr), которая вернёт массив уникальных, не повторяющихся значений массива arr.
 
 // Например:
-
-
 
 // alert( unique(values) ); // Hare, Krishna, :-O
 // P.S. Здесь мы используем строки, но значения могут быть любого типа.
@@ -1757,7 +1750,6 @@
 // alert( getLocalDay(date) );       // вторник, нужно показать 2
 // */
 
-
 // // function getLocalDay(date) {
 // //   let weekDays = ['7', '1', '2', '3', '4', '5', '6'];
 // //   return weekDays[date.getDay()]
@@ -1831,8 +1823,6 @@
 // Функция должна работать в любой день, т.е. в ней не должно быть конкретного значения сегодняшней даты.
 
 // */
-
-
 
 // function getSecondsToday() {
 //   let now = new Date();
@@ -1974,7 +1964,6 @@
 // Но иногда мы не можем использовать имя, так как могут быть и другие, нужные, свойства с этим именем во вложенных объектах. Поэтому можно проверять свойство по значению.
 
 // Напишите функцию replacer для JSON-преобразования, которая удалит свойства, ссылающиеся на meetup:
-
 
 // в результате должно быть:
 // {
@@ -2262,7 +2251,6 @@
 //   }
 // }
 
-
 // // printListReverse(list);
 
 // // let array = new Array(1,2);
@@ -2275,7 +2263,7 @@
 // //   for (let item of args) {
 // //     if (!Array.isArray(item)) {
 // //       newArr.push(item);
-// //     } else { 
+// //     } else {
 // //       newArr.push(...item);
 // //     }
 // //   }
@@ -2514,7 +2502,7 @@
 
 //   const left = number.slice(0, middle).split('').reduce((sum, e) => sum += +e, 0);
 //   const right = number.slice(-middle).split('').reduce((sum, e) => sum += +e, 0);
-  
+
 //   if (left == right) {
 //     return 'Balanced'
 //   } else {
@@ -2568,4 +2556,115 @@
 // console.log(calculateDamage("fire", "electric", 10, 2) == 250);
 // console.log(calculateDamage("grass", "electric", 57, 19) == 150);
 
+// Измените код makeCounter() так, чтобы счётчик мог увеличивать и устанавливать значение:
 
+//     counter() должен возвращать следующее значение(как и раньше).
+// counter.set(value) должен устанавливать счётчику значение value.
+// counter.decrease() должен уменьшать значение счётчика на 1.
+// Посмотрите код из песочницы с полным примером использования.
+
+// P.S.Для того, чтобы сохранить текущее значение счётчика, можно воспользоваться как замыканием, так и свойством функции.Или сделать два варианта решения: и так, и так.
+
+// function makeCounter() {
+//   let count = 0;
+
+//   function counter() {
+//     return ++count;
+//   }
+
+//   counter.set = value => (count = value);
+//   counter.decrease = () => count--;
+
+//   return counter;
+// }
+
+// let abc = makeCounter();
+
+// abc.set(10);
+// abc.decrease();
+
+// console.log(abc());
+
+// Напишите функцию printNumbers(from, to), которая выводит число каждую секунду, начиная от from и заканчивая to.
+
+// Сделайте два варианта решения.
+
+// // Используя setInterval.
+// function printNumbersInterval(from, to) {
+//   let current = from;
+
+//   function print() {
+//     console.log(current);
+
+//     if (current >= to) {
+//       clearInterval(timerID);
+//     }
+
+//     current++;
+//   }
+
+//   print();
+//   let timerID = setInterval(print, 1000);
+// }
+
+// // Используя рекурсивный setTimeout.
+
+// function printNumbers(from, to) {
+//   setTimeout(function print() {
+//     if (from <= to) {
+//       console.log(from++);
+//       setTimeout(print, 1000);
+//     }
+//   }, 1000);
+// }
+
+// printNumbersInterval(1, 5);
+
+// function work(a, b) {
+//   console.log(a + b); // произвольная функция или метод
+// }
+
+// function spy(fucn) {
+//   function wrapper(...args) {
+//     console.log(args);
+//     wrapper.calls.push(args);
+//     return fucn.apply(this, arguments);
+//   }
+
+//   wrapper.calls = [];
+
+//   return wrapper;
+// }
+
+// work = spy(work);
+
+// work(1, 2); // 3
+// work(4, 5); // 9
+
+// for (let args of work.calls) {
+//   console.log("call:" + args.join()); // "call:1,2", "call:4,5"
+// }
+
+function work(a, b) {
+  console.log(a + b);
+}
+
+function spy(func) {
+  function wrapper(a, b) {
+    wrapper.calls.push([a, b].join());
+    return func.call(this, a, b);
+  }
+
+  wrapper.calls = [];
+
+  return wrapper;
+}
+
+work = spy(work);
+
+work(1, 3);
+work(1, 5);
+
+for (let args of work.calls) {
+  console.log("Call: " + args);
+}
