@@ -2711,7 +2711,7 @@
 // f1000("hello");
 
 // function helloFunc(i) {
-  
+
 //   console.log("hello " + i);
 // }
 
@@ -2748,4 +2748,287 @@
 // setTimeout(() => helloFunc(3), 100); // проигнорирован (прошло только 100 мс)
 // setTimeout(() => helloFunc(4), 1100); // выполняется
 // setTimeout(() => helloFunc(5), 1500); // проигнорирован (прошло только 400 мс от последнего вызова)
+
+// function oddRow(n) {
+//   return Array(n)
+//     .fill(0)
+//     .map((_, i) => n * n - n + 1 + i * 2);
+// }
+
+// console.log(oddRow(1));
+// console.log(oddRow(2));
+// console.log(oddRow(3));
+// console.log(oddRow(4));
+// console.log(oddRow(5));
+
+// let animal = {
+//   sleep: true
+// };
+
+// let cat = {
+//   eats: true,
+//   __proto__: animal
+// };
+
+// for (let prop in cat) {
+//   // eslint-disable-next-line no-prototype-builtins
+//   let isOwn = cat.hasOwnProperty(prop);
+
+//   if (isOwn) {
+//     console.log(prop);
+//   }
+// }
+
+// С помощью свойства __proto__ задайте прототипы так, чтобы поиск любого свойства выполнялся по следующему пути: pockets → bed → table → head. Например, pockets.pen должно возвращать значение 3 (найденное в table), а bed.glasses – значение 1 (найденное в head).
+
+// Ответьте на вопрос: как быстрее получить значение glasses – через pockets.glasses или через head.glasses? При необходимости составьте цепочки поиска и сравните их.
+
+// let head = {
+//   glasses: 1
+// };
+
+// let table = {
+//   pen: 3,
+//   __proto__: head
+// };
+
+// let bed = {
+//   sheet: 1,
+//   pillow: 2,
+//   __proto__: table
+// };
+
+// let pockets = {
+//   money: 2000,
+//   __proto__: bed
+// };
+
+// console.log(pockets.pen);
+// console.log(bed.glasses);
+
+// let hamster = {
+//   stomach: [],
+
+//   eat(food) {
+//     this.stomach = [food];
+//   }
+// };
+
+// let speedy = {
+//   __proto__: hamster
+// };
+
+// let lazy = {
+//   __proto__: hamster
+// };
+
+// // Этот хомяк нашёл еду
+// speedy.eat("apple");
+// speedy.eat("burger");
+// console.log(speedy.stomach); // apple
+
+// // У этого хомяка тоже есть еда. Почему? Исправьте
+// console.log(lazy.stomach); // apple
+// function User(name) {
+//   this.name = name;
+// }
+// User.prototype = {}; // (*)
+
+// let user = new User("John");
+// let user2 = new user.constructor('adsfas');
+
+// console.log(user2); // undefined
+
+// function f(a, b) {
+//   console.log(a + b);
+// }
+
+// Function.prototype.defer = function(delay) {
+//   let func = this;
+
+//   return function() {
+//     setTimeout(() => func.call(this, ...arguments), 1000);
+//   };
+// };
+
+// f.defer(1000)(1, 2); // выведет 3 через 1 секунду.
+
+// let user = {
+//   name: "John",
+//   age: 30
+// };
+
+// let newUser = JSON.parse(
+//   JSON.stringify(
+//     user,
+//     function(key, value) {
+//       if (typeof value === "string") {
+//         return undefined;
+//       }
+//       return value;
+//     },
+//     2
+//   )
+// );
+
+// console.log(newUser);
+
+// let user = {
+//   name: "adsfa",
+//   age: 123,
+
+//   show() {
+//     console.log(this.name + ", " + this.age);
+//   }
+// };
+
+// Object.defineProperty(user, "show", {
+//   enumerable: false
+// });
+
+// console.dir(Object.getPrototypeOf(user));
+
+// let dictionary = Object.create(null, {
+//   toString: {
+//     value() {
+//       return Object.keys(this).join(", ");
+//     }
+//   }
+// });
+
+// // ваш код, который добавляет метод dictionary.toString
+
+// // добавляем немного данных
+// dictionary.apple = "Apple";
+// dictionary.__proto__ = "test"; // здесь __proto__ -- это обычный ключ
+
+// // только apple и __proto__ выведены в цикле
+// for (let key in dictionary) {
+//   console.log(key); // "apple", затем "__proto__"
+// }
+
+// // ваш метод toString в действии
+// console.log(dictionary.toString()); // "apple,__proto__"
+
+// class User {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//   }
+//   sayHi() {
+//     console.log(`Hi, ${this.name}`);
+//   }
+// }
+
+// let userNick = new User("Nick", 22);
+
+// userNick.sayHi();
+
+// function Clock({ template }) {
+//   let timer;
+
+//   function render() {
+//     let date = new Date();
+
+//     let hours = date.getHours();
+//     if (hours < 10) hours = "0" + hours;
+
+//     let mins = date.getMinutes();
+//     if (mins < 10) mins = "0" + mins;
+
+//     let secs = date.getSeconds();
+//     if (secs < 10) secs = "0" + secs;
+
+//     let output = template
+//       .replace("h", hours)
+//       .replace("m", mins)
+//       .replace("s", secs);
+
+//     console.log(output);
+//   }
+
+//   this.stop = function() {
+//     clearInterval(timer);
+//   };
+
+//   this.start = function() {
+//     render();
+//     timer = setInterval(render, 1000);
+//   };
+// }
+
+// class Animal {
+//   constructor(name) {
+//     this.name = name;
+//   }
+// }
+
+// class Rabbit extends Animal {
+//   constructor(name) {
+//     super(name);
+//     this.created = Date.now();
+//   }
+// }
+
+// let rabbit = new Rabbit("Белый кролик"); // Error: this is not defined
+// console.log(rabbit.name);
+
+// class Clock {
+//   constructor({ template }) {
+//     this.template = template;
+//   }
+//   render() {
+//     let date = new Date();
+
+//     let hours = date.getHours();
+//     if (hours < 10) hours = "0" + hours;
+
+//     let minutes = date.getMinutes();
+//     if (minutes < 10) minutes = "0" + minutes;
+
+//     let seconds = date.getSeconds();
+//     if (seconds < 10) seconds = "0" + seconds;
+
+//     let output = this.template
+//       .replace("h", hours)
+//       .replace("m", minutes)
+//       .replace("s", seconds);
+
+//     console.log(output);
+//   }
+//   stop() {
+//     clearInterval(timer);
+//   }
+//   start() {
+//     this.render();
+//     this.timer = setInterval(() => this.render(), 1000);
+//   }
+// }
+
+// class ExtendetClock extends Clock {
+//   constructor(options) {
+//     super(options);
+//     let { precision = 1000 } = options;
+//     this.precision = precision;
+//   }
+
+//   start() {
+//     this.render();
+//     this.timer = setInterval(() => super.render(), this.precision);
+//   }
+// }
+
+// let clock = new ExtendetClock({ template: "h:m:s", precision: 20000 });
+// clock.start();
+
+// class Rabbit extends Object {
+//   constructor(name) {
+//     super();
+//     this.name = name;
+//   }
+// }
+
+// let rabbit = new Rabbit("Кроль");
+
+// console.log(rabbit.hasOwnProperty("name")); // true
 
