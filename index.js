@@ -3032,3 +3032,228 @@
 
 // console.log(rabbit.hasOwnProperty("name")); // true
 
+// class Animal {
+//   constructor(name, speed) {
+//     this.speed = speed;
+//     this.name = name;
+//   }
+
+//   run(speed = 0) {
+//     this.speed += speed;
+//     console.log(`${this.name} бежит со скоростью ${this.speed}.`);
+//   }
+
+//   static compare(animalA, animalB) {
+//     console.log("hi nikita");
+//     return animalA.speed - animalB.speed;
+//   }
+// }
+
+// // Наследует от Animal
+// class Rabbit extends Animal {
+//   hide() {
+//     console.log(`${this.name} прячется!`);
+//   }
+// }
+
+// let rabbits = [new Rabbit("Белый кролик", 10), new Rabbit("Чёрный кролик", 5)];
+
+// console.dir(Animal);
+// console.dir(Rabbit);
+
+// rabbits.sort(Rabbit.compare);
+
+// class User {
+//   constructor({ name, age }) {
+//     this._name = name;
+//     this._age = age;
+//   }
+
+//   get age() {
+//     console.log(`${this._name}-у уже ${this._age} года`);
+//     return this._age;
+//   }
+
+//   set age(value) {
+//     if (value < 0) throw new Error("Отрицательное значение возраста");
+//     this._age = value;
+//   }
+
+//   get name() {
+//     return this._name;
+//   }
+// }
+
+// let nick = new User({ name: "Nick", age: 22 });
+// nick.age = 34;
+// console.log(nick.name, nick.age);
+// // class CoffeeMachine {
+//   // ...
+
+//   constructor(power) {
+//     this._power = power;
+//   }
+
+//   get power() {
+//     return this._power;
+//   }
+// }
+
+// // создаём кофеварку
+// let coffeeMachine = new CoffeeMachine(100);
+
+// console.log(`Мощность: ${coffeeMachine.power}W`); // Мощность: 100W
+// class CoffeeMachine {
+//   #waterLimit = 200;
+
+//   #checkWater(value) {
+//     if (value < 0) throw new Error("Отрицательный уровень воды");
+//     if (value > this.#waterLimit) throw new Error("Слишком много воды");
+//   }
+// }
+
+// let coffeeMachine = new CoffeeMachine();
+
+// let json = '{ "age": 30, "ntme": "Misha" }';
+// try {
+//   console.log(JSON.parse(json));
+//   let user = JSON.parse(json);
+//   if (!user.name) throw new SyntaxError("Отсутствует user.name в json файле");
+// } catch (err) {
+//   if (err.name === "SyntaxError") {
+//     console.log("JSON errow " + err.message);
+//   } else {
+//     throw err;
+//   }
+// }
+
+// function fib(n) {
+//   let c;
+//   for (let a = 1, b = 1; n > 2; n--) {
+//     c = a + b;
+//     a = b;
+//     b = c;
+//   }
+//   return c;
+// }
+
+// function time(func) {
+//   return function() {
+//     let start = new Date();
+//     let result = func.call(this, ...arguments);
+//     console.log("Время выполнения: " + (Date.now() - start).toFixed(2) + " ms");
+//     return result;
+//   };
+// }
+
+// fib = time(fib);
+
+// console.log(fib(31122345));
+
+// class FormatError extends SyntaxError {
+//   constructor(message) {
+//     super(message);
+//     this.name = this.constructor.name;
+//   }
+// }
+
+// let err = new FormatError("ошибка форматирования");
+
+// console.log(err.message); // ошибка форматирования
+// console.log(err.name); // FormatError
+// console.log(err.stack); // stack
+
+// console.log(err instanceof FormatError); // true
+// console.log(err instanceof SyntaxError); // true (потому что наследует от SyntaxError)
+
+// class ValidationError extends Error {
+//   constructor(message) {
+//     super(message);
+//     this.name = this.constructor.name;
+//   }
+// }
+
+// class PropertyRequiredError extends ValidationError {
+//   constructor(property) {
+//     super("нет свойства " + property);
+//   }
+// }
+
+// class ReadError extends Error {
+//   constructor(message, cause) {
+//     super(message);
+//     this.cause = cause;
+//     this.name = this.constructor.name;
+//   }
+// }
+
+// function readJSON(json) {
+//   let user;
+
+//   try {
+//     user = JSON.parse(json);
+//   } catch (err) {
+//     if (err instanceof SyntaxError) {
+//       throw new ReadError("Ошибка чтения файла", err);
+//     } else {
+//       throw err;
+//     }
+//   }
+
+//   if (!user.name) {
+//     throw new PropertyRequiredError("name");
+//   }
+
+//   if (!user.age) {
+//     throw new PropertyRequiredError("age");
+//   }
+
+//   return user;
+// }
+
+// try {
+//   let json = readJSON('{ "name": "Nikita", "age" : "20" }');
+// } catch (err) {
+//   if (err instanceof PropertyRequiredError) {
+//     console.log("Ошибка " + err.name + " " + err.message);
+//   } else {
+//     throw err;
+//   }
+// }
+
+function paint() {
+  showCircle(200, 200, 100).then(div => {
+    div.classList.add("message-ball");
+    div.append("Hello, world!");
+  });
+}
+
+function showCircle(cx, cy, radius) {
+  return new Promise(res => {
+    let div = document.createElement("div");
+    div.style.width = 0;
+    div.style.height = 0;
+    div.style.left = cx + "px";
+    div.style.top = cy + "px";
+    div.className = "circle";
+    document.body.append(div);
+
+    setTimeout(() => {
+      div.style.width = radius * 2 + "px";
+      div.style.height = radius * 2 + "px";
+
+      div.addEventListener("transitionend", function handler() {
+        div.removeEventListener("transitionend", handler);
+        res(div);
+      });
+    }, 0);
+  });
+}
+
+// function delay(ms) {
+//   return new Promise(function(res, rej) {
+//     setTimeout(res, ms);
+//   });
+// }
+
+// delay(3000).then(() => console.log("выполнилось через 3 секунды"));
