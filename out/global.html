@@ -1,1835 +1,549 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>JSDoc: Global</title>
 
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
-</head>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="styles/prettify-tomorrow.css"
+    />
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css" />
+  </head>
 
-<body>
+  <body>
+    <div id="main">
+      <h1 class="page-title">Global</h1>
 
-<div id="main">
+      <section>
+        <header>
+          <h2></h2>
+        </header>
 
-    <h1 class="page-title">Global</h1>
+        <article>
+          <div class="container-overview">
+            <dl class="details"></dl>
+          </div>
 
-    
+          <h3 class="subsection-title">Methods</h3>
 
+          <h4 class="name" id="askJSQuestion">
+            <span class="type-signature"></span>askJSQuestion<span
+              class="signature"
+              >()</span
+            ><span class="type-signature"></span>
+          </h4>
 
+          <div class="description">
+            Используя конструкцию if..else, напишите код, который будет
+            спрашивать: „Какое «официальное» название JavaScript?“ Если
+            пользователь вводит «ECMAScript», то показать: «Верно!», в противном
+            случае – отобразить: «Не знаете? ECMAScript!»
+          </div>
 
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="index.js.html">index.js</a>,
+                  <a href="index.js.html#line38">line 38</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
 
-<section>
+          <h4 class="name" id="askSomething">
+            <span class="type-signature"></span>askSomething<span
+              class="signature"
+              >()</span
+            ><span class="type-signature"></span>
+          </h4>
 
-<header>
-    
-        <h2></h2>
-        
-    
-</header>
+          <div class="description">
+            function ask(question, yes, no) { if (confirm(question)) yes() else
+            no(); } ask( "Вы согласны?", function() { alert("Вы согласились.");
+            }, function() { alert("Вы отменили выполнение."); } );
+          </div>
 
-<article>
-    <div class="container-overview">
-    
-        
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="index.js.html">index.js</a>,
+                  <a href="index.js.html#line406">line 406</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
 
-        
+          <h4 class="name" id="autorization">
+            <span class="type-signature"></span>autorization<span
+              class="signature"
+              >()</span
+            ><span class="type-signature"></span>
+          </h4>
 
+          <div class="description">
+            Напишите код, который будет спрашивать логин с помощью prompt. Если
+            посетитель вводит «Админ», то prompt запрашивает пароль, если ничего
+            не введено или нажата клавиша Esc – показать «Отменено», в противном
+            случае отобразить «Я вас не знаю». Пароль проверять так: Если введён
+            пароль «Я главный», то выводить «Здравствуйте!», Иначе – «Неверный
+            пароль», При отмене – «Отменено».
+          </div>
 
-<dl class="details">
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="index.js.html">index.js</a>,
+                  <a href="index.js.html#line155">line 155</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
 
-    
+          <h4 class="name" id="checkAge1">
+            <span class="type-signature"></span>checkAge1<span class="signature"
+              >()</span
+            ><span class="type-signature"></span>
+          </h4>
 
-    
+          <div class="description">
+            Следующая функция возвращает true, если параметр age больше 18. В
+            ином случае она задаёт вопрос confirm и возвращает его результат.
+            function checkAge(age) { if (age > 18) { return true; } else {
+            return confirm('Родители разрешили?'); } } Перепишите функцию, чтобы
+            она делала то же самое, но без if, в одну строку. Сделайте два
+            варианта функции checkAge: Используя оператор ? Используя оператор
+            ||
+          </div>
 
-    
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="index.js.html">index.js</a>,
+                  <a href="index.js.html#line346">line 346</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
 
-    
+          <h4 class="name" id="chooseBrowser">
+            <span class="type-signature"></span>chooseBrowser<span
+              class="signature"
+              >()</span
+            ><span class="type-signature"></span>
+          </h4>
 
-    
+          <div class="description">
+            Напишите if..else, соответствующий следующему switch: switch
+            (browser) { case 'Edge': alert( "You've got the Edge!" ); break;
+            case 'Chrome': case 'Firefox': case 'Safari': case 'Opera': alert(
+            'Okay we support these browsers too' ); break; default: alert( 'We
+            hope that this page looks ok!' ); }
+          </div>
 
-    
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="index.js.html">index.js</a>,
+                  <a href="index.js.html#line271">line 271</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
 
-    
+          <h4 class="name" id="chooseNumber">
+            <span class="type-signature"></span>chooseNumber<span
+              class="signature"
+              >()</span
+            ><span class="type-signature"></span>
+          </h4>
 
-    
+          <div class="description">
+            Перепишите код с использованием одной конструкции switch: const
+            number = +prompt('Введите число между 0 и 3', ''); if (number === 0)
+            { alert('Вы ввели число 0'); } if (number === 1) { alert('Вы ввели
+            число 1'); } if (number === 2 || number === 3) { alert('Вы ввели
+            число 2, а может и 3'); }
+          </div>
 
-    
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="index.js.html">index.js</a>,
+                  <a href="index.js.html#line306">line 306</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
 
-    
+          <h4 class="name" id="doWhileBiggerThan100">
+            <span class="type-signature"></span>doWhileBiggerThan100<span
+              class="signature"
+              >()</span
+            ><span class="type-signature"></span>
+          </h4>
 
-    
+          <div class="description">
+            Напишите цикл, который предлагает prompt ввести число, большее 100.
+            Если посетитель ввёл другое число – попросить ввести ещё раз, и так
+            далее. Цикл должен спрашивать число пока либо посетитель не введёт
+            число, большее 100, либо не нажмёт кнопку Отмена (ESC).
+            Предполагается, что посетитель вводит только числа. Предусматривать
+            обработку нечисловых строк в этой задаче необязательно.
+          </div>
 
-    
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="index.js.html">index.js</a>,
+                  <a href="index.js.html#line212">line 212</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
 
-    
+          <h4 class="name" id="isItEnough">
+            <span class="type-signature"></span>isItEnough<span
+              class="signature"
+              >()</span
+            ><span class="type-signature"></span>
+          </h4>
 
-    
+          <div class="description">
+            Перепишите if с использованием условного оператора '?': let result;
+            if (a + b < 4) { result = 'Мало'; } else { result = 'Много'; }
+          </div>
 
-    
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="index.js.html">index.js</a>,
+                  <a href="index.js.html#line80">line 80</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
 
-    
-</dl>
+          <h4 class="name" id="isItInRange">
+            <span class="type-signature"></span>isItInRange<span
+              class="signature"
+              >()</span
+            ><span class="type-signature"></span>
+          </h4>
 
+          <div class="description">
+            Напишите условие if для проверки, что переменная age находится в
+            диапазоне между 14 и 90 включительно. «Включительно» означает, что
+            значение переменной age может быть равно 14 или 90.
+          </div>
 
-        
-    
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="index.js.html">index.js</a>,
+                  <a href="index.js.html#line121">line 121</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="isItNotInRange">
+            <span class="type-signature"></span>isItNotInRange<span
+              class="signature"
+              >()</span
+            ><span class="type-signature"></span>
+          </h4>
+
+          <div class="description">
+            Напишите условие if для проверки, что значение переменной age НЕ
+            находится в диапазоне 14 и 90 включительно. Напишите два варианта:
+            первый с использованием оператора НЕ !, второй – без этого
+            оператора.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="index.js.html">index.js</a>,
+                  <a href="index.js.html#line135">line 135</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="min">
+            <span class="type-signature"></span>min<span class="signature"
+              >()</span
+            ><span class="type-signature"></span>
+          </h4>
+
+          <div class="description">
+            Напишите функцию min(a,b), которая возвращает меньшее из чисел a и
+            b. Пример вызовов: min(2, 5) == 2 min(3, -1) == -1 min(1, 1) == 1
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="index.js.html">index.js</a>,
+                  <a href="index.js.html#line364">line 364</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="pow">
+            <span class="type-signature"></span>pow<span class="signature"
+              >()</span
+            ><span class="type-signature"></span>
+          </h4>
+
+          <div class="description">
+            Напишите функцию pow(x,n), которая возвращает x в степени n. Иначе
+            говоря, умножает x на себя n раз и возвращает результат. pow(3, 2) =
+            3 * 3 = 9 pow(3, 3) = 3 * 3 * 3 = 27 pow(1, 100) = 1 * 1 * ...* 1 =
+            1 Создайте страницу, которая запрашивает x и n, а затем выводит
+            результат pow(x,n). P.S. В этой задаче функция обязана поддерживать
+            только натуральные значения n, т.е. целые от 1 и выше.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="index.js.html">index.js</a>,
+                  <a href="index.js.html#line379">line 379</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="printEvenNumbersFor">
+            <span class="type-signature"></span>printEvenNumbersFor<span
+              class="signature"
+              >()</span
+            ><span class="type-signature"></span>
+          </h4>
+
+          <div class="description">
+            При помощи цикла for выведите чётные числа от 2 до 10.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="index.js.html">index.js</a>,
+                  <a href="index.js.html#line182">line 182</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="printEvenNumbersWhile">
+            <span class="type-signature"></span>printEvenNumbersWhile<span
+              class="signature"
+              >()</span
+            ><span class="type-signature"></span>
+          </h4>
+
+          <div class="description">
+            Перепишите код, заменив цикл for на while, без изменения поведения
+            цикла.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="index.js.html">index.js</a>,
+                  <a href="index.js.html#line194">line 194</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="printHello">
+            <span class="type-signature"></span>printHello<span
+              class="signature"
+              >()</span
+            ><span class="type-signature"></span>
+          </h4>
+
+          <div class="description">
+            Перепишите if..else с использованием нескольких операторов '?'. Для
+            читаемости рекомендуется разбить код на несколько строк. let
+            message; if (login == 'Сотрудник') { message = 'Привет'; } else if
+            (login == 'Директор') { message = 'Здравствуйте'; } else if (login
+            == '') { message = 'Нет логина'; } else { message = ''; }
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="index.js.html">index.js</a>,
+                  <a href="index.js.html#line103">line 103</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="printName">
+            <span class="type-signature"></span>printName<span class="signature"
+              >()</span
+            ><span class="type-signature"></span>
+          </h4>
+
+          <div class="description">
+            Создайте страницу, которая спрашивает имя у пользователя и выводит
+            его.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="index.js.html">index.js</a>,
+                  <a href="index.js.html#line26">line 26</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="printNumberSing">
+            <span class="type-signature"></span>printNumberSing<span
+              class="signature"
+              >()</span
+            ><span class="type-signature"></span>
+          </h4>
+
+          <div class="description">
+            Используя конструкцию if..else, напишите код, который получает число
+            через prompt, а затем выводит в alert: 1, если значение больше нуля,
+            -1, если значение меньше нуля, 0, если значение равно нулю.
+            Предполагается, что пользователь вводит только числа.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="index.js.html">index.js</a>,
+                  <a href="index.js.html#line57">line 57</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="printPrimeNumbers">
+            <span class="type-signature"></span>printPrimeNumbers<span
+              class="signature"
+              >()</span
+            ><span class="type-signature"></span>
+          </h4>
+
+          <div class="description">
+            Натуральное число, большее 1, называется простым, если оно ни на что
+            не делится, кроме себя и 1. Другими словами, n > 1 – простое, если
+            при его делении на любое число кроме 1 и n есть остаток. Например, 5
+            это простое число, оно не может быть разделено без остатка на 2, 3 и
+            4. Напишите код, который выводит все простые числа из интервала от 2
+            до n. Для n = 10 результат должен быть 2,3,5,7. P.S. Код также
+            должен легко модифицироваться для любых других интервалов.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="index.js.html">index.js</a>,
+                  <a href="index.js.html#line233">line 233</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+        </article>
+      </section>
     </div>
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="askJSQuestion"><span class="type-signature"></span>askJSQuestion<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Используя конструкцию if..else, напишите код, который будет спрашивать: „Какое «официальное» название JavaScript?“
-Если пользователь вводит «ECMAScript», то показать: «Верно!», в противном случае – отобразить: «Не знаете? ECMAScript!»
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line38">line 38</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="askSomething"><span class="type-signature"></span>askSomething<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    function ask(question, yes, no) {
-  if (confirm(question)) yes()
-  else no();
-}
-
-ask(
-  "Вы согласны?",
-  function() { alert("Вы согласились."); },
-  function() { alert("Вы отменили выполнение."); }
-);
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line406">line 406</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="autorization"><span class="type-signature"></span>autorization<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Напишите код, который будет спрашивать логин с помощью prompt.
-
-Если посетитель вводит «Админ», то prompt запрашивает пароль, если ничего не введено или нажата клавиша Esc – показать «Отменено», в противном случае отобразить «Я вас не знаю».
-
-Пароль проверять так:
-
-Если введён пароль «Я главный», то выводить «Здравствуйте!»,
-Иначе – «Неверный пароль»,
-При отмене – «Отменено».
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line155">line 155</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="checkAge1"><span class="type-signature"></span>checkAge1<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Следующая функция возвращает true, если параметр age больше 18.
-
-В ином случае она задаёт вопрос confirm и возвращает его результат.
-
-function checkAge(age) {
-  if (age > 18) {
-    return true;
-  } else {
-    return confirm('Родители разрешили?');
-  }
-}
-Перепишите функцию, чтобы она делала то же самое, но без if, в одну строку.
-
-Сделайте два варианта функции checkAge:
-
-Используя оператор ?
-Используя оператор ||
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line346">line 346</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="chooseBrowser"><span class="type-signature"></span>chooseBrowser<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Напишите if..else, соответствующий следующему switch:
-
-switch (browser) {
-  case 'Edge':
-    alert( "You've got the Edge!" );
-    break;
-
-  case 'Chrome':
-  case 'Firefox':
-  case 'Safari':
-  case 'Opera':
-    alert( 'Okay we support these browsers too' );
-    break;
-
-  default:
-    alert( 'We hope that this page looks ok!' );
-}
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line271">line 271</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="chooseNumber"><span class="type-signature"></span>chooseNumber<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Перепишите код с использованием одной конструкции switch:
-
- const number = +prompt('Введите число между 0 и 3', '');
-
-if (number === 0) {
-  alert('Вы ввели число 0');
-}
-
-if (number === 1) {
-  alert('Вы ввели число 1');
-}
-
-if (number === 2 || number === 3) {
-  alert('Вы ввели число 2, а может и 3');
-}
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line306">line 306</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="doWhileBiggerThan100"><span class="type-signature"></span>doWhileBiggerThan100<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Напишите цикл, который предлагает prompt ввести число, большее 100. Если посетитель ввёл другое число – попросить ввести ещё раз, и так далее.
-
-Цикл должен спрашивать число пока либо посетитель не введёт число, большее 100, либо не нажмёт кнопку Отмена (ESC).
-
-Предполагается, что посетитель вводит только числа. Предусматривать обработку нечисловых строк в этой задаче необязательно.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line212">line 212</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="isItEnough"><span class="type-signature"></span>isItEnough<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Перепишите if с использованием условного оператора '?':
-
-let result;
-
-if (a + b < 4) {
-  result = 'Мало';
-} else {
-  result = 'Много';
-}
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line80">line 80</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="isItInRange"><span class="type-signature"></span>isItInRange<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Напишите условие if для проверки, что переменная age находится в диапазоне между 14 и 90 включительно.
-
-«Включительно» означает, что значение переменной age может быть равно 14 или 90.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line121">line 121</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="isItNotInRange"><span class="type-signature"></span>isItNotInRange<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Напишите условие if для проверки, что значение переменной age НЕ находится в диапазоне 14 и 90 включительно.
-
-Напишите два варианта: первый с использованием оператора НЕ !, второй – без этого оператора.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line135">line 135</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="min"><span class="type-signature"></span>min<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Напишите функцию min(a,b), которая возвращает меньшее из чисел a и b.
-
-Пример вызовов:
-
-min(2, 5) == 2
-min(3, -1) == -1
-min(1, 1) == 1
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line364">line 364</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="pow"><span class="type-signature"></span>pow<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Напишите функцию pow(x,n), которая возвращает x в степени n. Иначе говоря, умножает x на себя n раз и возвращает результат.
-
-pow(3, 2) = 3 * 3 = 9
-pow(3, 3) = 3 * 3 * 3 = 27
-pow(1, 100) = 1 * 1 * ...* 1 = 1
-Создайте страницу, которая запрашивает x и n, а затем выводит результат pow(x,n).
-
-P.S. В этой задаче функция обязана поддерживать только натуральные значения n, т.е. целые от 1 и выше.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line379">line 379</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="printEvenNumbersFor"><span class="type-signature"></span>printEvenNumbersFor<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    При помощи цикла for выведите чётные числа от 2 до 10.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line182">line 182</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="printEvenNumbersWhile"><span class="type-signature"></span>printEvenNumbersWhile<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Перепишите код, заменив цикл for на while, без изменения поведения цикла.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line194">line 194</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="printHello"><span class="type-signature"></span>printHello<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Перепишите if..else с использованием нескольких операторов '?'.
-
-Для читаемости рекомендуется разбить код на несколько строк.
-
-let message;
-
-if (login == 'Сотрудник') {
-  message = 'Привет';
-} else if (login == 'Директор') {
-  message = 'Здравствуйте';
-} else if (login == '') {
-  message = 'Нет логина';
-} else {
-  message = '';
-}
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line103">line 103</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="printName"><span class="type-signature"></span>printName<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Создайте страницу, которая спрашивает имя у пользователя и выводит его.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line26">line 26</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="printNumberSing"><span class="type-signature"></span>printNumberSing<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Используя конструкцию if..else, напишите код, который получает число через prompt, а затем выводит в alert:
-
-1, если значение больше нуля,
--1, если значение меньше нуля,
-0, если значение равно нулю.
-Предполагается, что пользователь вводит только числа.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line57">line 57</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="printPrimeNumbers"><span class="type-signature"></span>printPrimeNumbers<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Натуральное число, большее 1, называется простым, если оно ни на что не делится, кроме себя и 1.
-
-Другими словами, n > 1 – простое, если при его делении на любое число кроме 1 и n есть остаток.
-
-Например, 5 это простое число, оно не может быть разделено без остатка на 2, 3 и 4.
-
-Напишите код, который выводит все простые числа из интервала от 2 до n.
-
-Для n = 10 результат должен быть 2,3,5,7.
-
-P.S. Код также должен легко модифицироваться для любых других интервалов.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line233">line 233</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-    
-
-    
-
-    
-</article>
-
-</section>
-
-
-
-
-</div>
-
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#askJSQuestion">askJSQuestion</a></li><li><a href="global.html#askSomething">askSomething</a></li><li><a href="global.html#autorization">autorization</a></li><li><a href="global.html#checkAge1">checkAge1</a></li><li><a href="global.html#chooseBrowser">chooseBrowser</a></li><li><a href="global.html#chooseNumber">chooseNumber</a></li><li><a href="global.html#doWhileBiggerThan100">doWhileBiggerThan100</a></li><li><a href="global.html#isItEnough">isItEnough</a></li><li><a href="global.html#isItInRange">isItInRange</a></li><li><a href="global.html#isItNotInRange">isItNotInRange</a></li><li><a href="global.html#min">min</a></li><li><a href="global.html#pow">pow</a></li><li><a href="global.html#printEvenNumbersFor">printEvenNumbersFor</a></li><li><a href="global.html#printEvenNumbersWhile">printEvenNumbersWhile</a></li><li><a href="global.html#printHello">printHello</a></li><li><a href="global.html#printName">printName</a></li><li><a href="global.html#printNumberSing">printNumberSing</a></li><li><a href="global.html#printPrimeNumbers">printPrimeNumbers</a></li></ul>
-</nav>
-
-<br class="clear">
-
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Thu Oct 24 2019 15:19:04 GMT+0300 (GMT+03:00)
-</footer>
-
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
-</body>
+    <nav>
+      <h2><a href="index.html">Home</a></h2>
+      <h3>Global</h3>
+      <ul>
+        <li><a href="global.html#askJSQuestion">askJSQuestion</a></li>
+        <li><a href="global.html#askSomething">askSomething</a></li>
+        <li><a href="global.html#autorization">autorization</a></li>
+        <li><a href="global.html#checkAge1">checkAge1</a></li>
+        <li><a href="global.html#chooseBrowser">chooseBrowser</a></li>
+        <li><a href="global.html#chooseNumber">chooseNumber</a></li>
+        <li>
+          <a href="global.html#doWhileBiggerThan100">doWhileBiggerThan100</a>
+        </li>
+        <li><a href="global.html#isItEnough">isItEnough</a></li>
+        <li><a href="global.html#isItInRange">isItInRange</a></li>
+        <li><a href="global.html#isItNotInRange">isItNotInRange</a></li>
+        <li><a href="global.html#min">min</a></li>
+        <li><a href="global.html#pow">pow</a></li>
+        <li>
+          <a href="global.html#printEvenNumbersFor">printEvenNumbersFor</a>
+        </li>
+        <li>
+          <a href="global.html#printEvenNumbersWhile">printEvenNumbersWhile</a>
+        </li>
+        <li><a href="global.html#printHello">printHello</a></li>
+        <li><a href="global.html#printName">printName</a></li>
+        <li><a href="global.html#printNumberSing">printNumberSing</a></li>
+        <li><a href="global.html#printPrimeNumbers">printPrimeNumbers</a></li>
+      </ul>
+    </nav>
+
+    <br class="clear" />
+
+    <footer>
+      Documentation generated by
+      <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Thu Oct 24
+      2019 15:19:04 GMT+0300 (GMT+03:00)
+    </footer>
+
+    <script>
+      prettyPrint();
+    </script>
+    <script src="scripts/linenumber.js"></script>
+  </body>
 </html>

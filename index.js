@@ -1,6 +1,5 @@
 /* eslint-disable no-func-assign */
 "use strict";
-
 // // import { isArray } from "util";
 
 // // module.exports.pow = pow;
@@ -3221,34 +3220,34 @@
 //   }
 // }
 
-function paint() {
-  showCircle(200, 200, 100).then(div => {
-    div.classList.add("message-ball");
-    div.append("Hello, world!");
-  });
-}
+// function paint() {
+//   showCircle(200, 200, 100).then(div => {
+//     div.classList.add("message-ball");
+//     div.append("Hello, world!");
+//   });
+// }
 
-function showCircle(cx, cy, radius) {
-  return new Promise(res => {
-    let div = document.createElement("div");
-    div.style.width = 0;
-    div.style.height = 0;
-    div.style.left = cx + "px";
-    div.style.top = cy + "px";
-    div.className = "circle";
-    document.body.append(div);
+// function showCircle(cx, cy, radius) {
+//   return new Promise(res => {
+//     let div = document.createElement("div");
+//     div.style.width = 0;
+//     div.style.height = 0;
+//     div.style.left = cx + "px";
+//     div.style.top = cy + "px";
+//     div.className = "circle";
+//     document.body.append(div);
 
-    setTimeout(() => {
-      div.style.width = radius * 2 + "px";
-      div.style.height = radius * 2 + "px";
+//     setTimeout(() => {
+//       div.style.width = radius * 2 + "px";
+//       div.style.height = radius * 2 + "px";
 
-      div.addEventListener("transitionend", function handler() {
-        div.removeEventListener("transitionend", handler);
-        res(div);
-      });
-    }, 0);
-  });
-}
+//       div.addEventListener("transitionend", function handler() {
+//         div.removeEventListener("transitionend", handler);
+//         res(div);
+//       });
+//     }, 0);
+//   });
+// }
 
 // function delay(ms) {
 //   return new Promise(function(res, rej) {
@@ -3257,3 +3256,77 @@ function showCircle(cx, cy, radius) {
 // }
 
 // delay(3000).then(() => console.log("выполнилось через 3 секунды"));
+
+// let table = document.createElement("table");
+// table.setAttribute("border", "2");
+
+// document.body.appendChild(table);
+// for (let i = 0; i <= 4; i++) {
+//   let tr = document.createElement("tr");
+//   for (let j = 0; j <= 4; j++) {
+//     let td = document.createElement("td");
+//     td.append(`${i + 1}:${j + 1}`);
+//     tr.appendChild(td);
+//   }
+//   table.appendChild(tr);
+// }
+
+// let i = 0;
+// for (let row of table.rows) {
+//   row.cells[i].style.background = "red";
+//   i++;
+// }
+
+//1
+// console.log("=================================");
+// console.log(document.getElementById("age-table"));
+// console.log(document.querySelector("#age-table"));
+// let table = document.querySelector("#age-table");
+
+// //2
+// console.log("=================================");
+// console.log(document.querySelector("#age-table").querySelectorAll("label"));
+
+// //3
+// console.log("=================================");
+// console.log(table.querySelector("td:first-child"));
+
+// //4
+// console.log("=================================");
+// console.log(document.querySelector("form[name='search']"));
+
+// //5
+// console.log("=================================");
+// console.log(
+//   (document
+//     .querySelector("form[name='search']")
+//     .querySelector("input:first-child").style.background = "red")
+// );
+// //6
+// console.log("=================================");
+// console.log(
+//   (document
+//     .querySelector("form[name='search']")
+//     .querySelector("input:last-child").style.background = "green")
+// );
+
+let list = `
+  <ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>
+      <ul>
+        <li>3.1</li>
+        <li>3.2</li>
+        <li>3.3</li>
+      </ul>
+    </li>
+    <li>4</li>
+  </ul>
+`;
+document.body.innerHTML += list;
+
+function countChildrens(elem) {}
+
+list = document.querySelector("#list");
+console.log(countChildrens(list));
